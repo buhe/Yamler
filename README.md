@@ -1,4 +1,4 @@
-## 404
+## Yaml editor app for developer.
 
 ## Privacy Policy
 
