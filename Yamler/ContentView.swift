@@ -11,7 +11,7 @@ struct ContentView: View {
     @ObservedObject var viewModel: ViewModel
 
     var body: some View {
-        Text(viewModel.model.yamls.description)
+        Text(String(data: try! viewModel.model.yaml(),encoding: .utf8)!)
     }
 }
 
