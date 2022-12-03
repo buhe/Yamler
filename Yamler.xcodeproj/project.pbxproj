@@ -17,6 +17,8 @@
 		3FE6B4A02938DF5600559FBE /* YamlerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6B49F2938DF5600559FBE /* YamlerUITestsLaunchTests.swift */; };
 		3FE6B4AD2938DFE100559FBE /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6B4AC2938DFE100559FBE /* Model.swift */; };
 		3FE6B4AF2938E00000559FBE /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6B4AE2938E00000559FBE /* ViewModel.swift */; };
+		3FE6B4B12938E18100559FBE /* Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6B4B02938E18100559FBE /* Ex.swift */; };
+		3FE6B4B7293A456F00559FBE /* Yams in Frameworks */ = {isa = PBXBuildFile; productRef = 3FE6B4B6293A456F00559FBE /* Yams */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,7 @@
 		3FE6B49F2938DF5600559FBE /* YamlerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamlerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3FE6B4AC2938DFE100559FBE /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		3FE6B4AE2938E00000559FBE /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		3FE6B4B02938E18100559FBE /* Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ex.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FE6B4B7293A456F00559FBE /* Yams in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +115,7 @@
 				3FE6B4882938DF5600559FBE /* Preview Content */,
 				3FE6B4AC2938DFE100559FBE /* Model.swift */,
 				3FE6B4AE2938E00000559FBE /* ViewModel.swift */,
+				3FE6B4B02938E18100559FBE /* Ex.swift */,
 			);
 			path = Yamler;
 			sourceTree = "<group>";
@@ -156,6 +161,9 @@
 			dependencies = (
 			);
 			name = Yamler;
+			packageProductDependencies = (
+				3FE6B4B6293A456F00559FBE /* Yams */,
+			);
 			productName = Yamler;
 			productReference = 3FE6B47B2938DF5500559FBE /* Yamler.app */;
 			productType = "com.apple.product-type.application";
@@ -228,6 +236,9 @@
 				Base,
 			);
 			mainGroup = 3FE6B4722938DF5500559FBE;
+			packageReferences = (
+				3FE6B4B5293A456F00559FBE /* XCRemoteSwiftPackageReference "Yams" */,
+			);
 			productRefGroup = 3FE6B47C2938DF5500559FBE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -272,6 +283,7 @@
 			files = (
 				3FE6B4AF2938E00000559FBE /* ViewModel.swift in Sources */,
 				3FE6B4812938DF5500559FBE /* YamlerDocument.swift in Sources */,
+				3FE6B4B12938E18100559FBE /* Ex.swift in Sources */,
 				3FE6B47F2938DF5500559FBE /* YamlerApp.swift in Sources */,
 				3FE6B4832938DF5500559FBE /* ContentView.swift in Sources */,
 				3FE6B4AD2938DFE100559FBE /* Model.swift in Sources */,
@@ -632,6 +644,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3FE6B4B5293A456F00559FBE /* XCRemoteSwiftPackageReference "Yams" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jpsim/Yams";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3FE6B4B6293A456F00559FBE /* Yams */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3FE6B4B5293A456F00559FBE /* XCRemoteSwiftPackageReference "Yams" */;
+			productName = Yams;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3FE6B4732938DF5500559FBE /* Project object */;
 }
