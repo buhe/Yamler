@@ -31,5 +31,8 @@ class ViewModel: ReferenceFileDocument {
        }
     }
     
+    init() {
+        model = Model()
+    }
     
 }

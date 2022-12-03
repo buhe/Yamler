@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
-    @Binding var document: YamlerDocument
+    @ObservedObject var viewModel: ViewModel
 
     var body: some View {
-        TextEditor(text: $document.text)
+        Text(viewModel.model.yamls.description)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(document: .constant(YamlerDocument()))
+        ContentView(viewModel: ViewModel())
     }
 }

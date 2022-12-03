@@ -23,4 +23,8 @@ struct Model {
         }
     }
     
+    init() {
+        
+    }
+    
 }
