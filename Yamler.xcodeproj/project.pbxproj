@@ -105,11 +105,11 @@
 			isa = PBXGroup;
 			children = (
 				3FE6B47E2938DF5500559FBE /* YamlerApp.swift */,
-				3FE6B4822938DF5500559FBE /* ContentView.swift */,
 				3FE6B4842938DF5600559FBE /* Assets.xcassets */,
 				3FE6B4862938DF5600559FBE /* Info.plist */,
 				3FE6B4872938DF5600559FBE /* Yamler.entitlements */,
 				3FE6B4882938DF5600559FBE /* Preview Content */,
+				3FE6B4822938DF5500559FBE /* ContentView.swift */,
 				3FE6B4AC2938DFE100559FBE /* Model.swift */,
 				3FE6B4AE2938E00000559FBE /* ViewModel.swift */,
 				3FE6B4B02938E18100559FBE /* Ex.swift */,

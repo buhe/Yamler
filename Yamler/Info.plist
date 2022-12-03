@@ -5,16 +5,14 @@
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
+			<key>CFBundleTypeName</key>
+			<string>Yaml</string>
 			<key>LSHandlerRank</key>
-			<string>Default</string>
+			<string>Owner</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>dev.buhe.yaml</string>
 			</array>
-			<key>NSUbiquitousDocumentUserActivityType</key>
-			<string>$(PRODUCT_BUNDLE_IDENTIFIER).example-document</string>
 		</dict>
 	</array>
 	<key>UTExportedTypeDeclarations</key>
@@ -53,7 +51,7 @@
 			<key>UTTypeIcons</key>
 			<dict/>
 			<key>UTTypeIdentifier</key>
-			<string>dev,buhe.yaml</string>
+			<string>dev.buhe.yaml</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>

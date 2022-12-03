@@ -9,5 +9,5 @@ import Foundation
 import UniformTypeIdentifiers
 
 extension UTType {
-    static let yaml = UTType(exportedAs: "dev.buhe.yaml")
+    static let yaml = UTType(importedAs: "dev.buhe.yaml")
 }

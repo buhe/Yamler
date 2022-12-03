@@ -17,6 +17,7 @@ struct Model {
     
     init(from yaml: Data) throws {
         if let s = String(data: yaml, encoding: .utf8) {
+            print("str is \(s)")
             if let value = try Yams.load(yaml: s) as? [String: Any] {
                 yamls = value
             }
