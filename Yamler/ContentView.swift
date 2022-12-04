@@ -23,6 +23,7 @@ struct ContentView: View {
                 } label: {
                     Image(systemName: "pencil")
                 }
+                EditButton()
                 Button {
                     
                 } label: {
@@ -38,15 +39,41 @@ struct ContentView: View {
 
 
 struct ItemsView: View {
-    let items: [Item]
+    @State var items: [Item]
+    @State var selection: Set<String> = []
     var body: some View {
-        List {
-            ForEach(items) { item in
-                /*@START_MENU_TOKEN@*/Text(item.keyName)/*@END_MENU_TOKEN@*/
+        NavigationView{
+            List(selection: $selection) {
+                ForEach(items) {
+                    item in
+                    NavigationLink {
+                        // edit this
+                        ItemEditor(item: item)
+                    } label: {
+                        HStack {
+                            /*@START_MENU_TOKEN@*/Text(item.keyName)/*@END_MENU_TOKEN@*/
+                            Spacer()
+                            Text(item.valueType)
+                        }
+                    }
+                    
+                }.onDelete {
+                    index in
+                }
+                
             }
         }
+        
     }
 }
+
+struct ItemEditor: View {
+    var item: Item
+    var body: some View {
+        Text(item.keyName)
+    }
+}
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(viewModel: ViewModel())
