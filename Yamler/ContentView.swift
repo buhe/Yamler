@@ -23,7 +23,7 @@ struct ContentView: View {
                 } label: {
                     Image(systemName: "pencil")
                 }
-                EditButton()
+//                EditButton()
                 Button {
                     
                 } label: {
@@ -31,6 +31,7 @@ struct ContentView: View {
                 }
             }
             ItemsView(items: viewModel.list(base: nil))
+            ItemRawView(items: try! viewModel.model.yamlStr()).background(Color.yellow)
 //            Text(String(data: try! viewModel.model.yaml(),encoding: .utf8)!)
         }
 
@@ -72,6 +73,13 @@ struct ItemEditor: View {
     var item: Item
     var body: some View {
         Text(item.keyName)
+    }
+}
+
+struct ItemRawView: View {
+    var items: String
+    var body: some View {
+        Text(items).frame(alignment: .leading).padding()
     }
 }
 

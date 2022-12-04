@@ -16,6 +16,10 @@ struct Model {
         return yaml.data(using: .utf8)!
     }
     
+    func yamlStr() throws -> String {
+        try Yams.dump(object: rawYaml)
+    }
+    
     init(from yaml: Data) throws {
         if let s = String(data: yaml, encoding: .utf8) {
             print("str is \(s)")
