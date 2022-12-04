@@ -8,7 +8,32 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
+struct Item: Identifiable {
+    let keyName: String
+    let valueType: String
+    let value: Any
+    let id: String
+}
+
 class ViewModel: ReferenceFileDocument {
+    
+
+    
+    func list(base farther: Item?) -> [Item] {
+        var items: [Item] = []
+        if let farther = farther {
+            // from secord row
+            
+        } else {
+            
+            // from top
+            for (key, value) in model.rawYaml {
+                print("\(key)")
+                items.append(Item(keyName: key, valueType: String(reflecting: type(of: value)) , value: "hey", id: key))
+            }
+        }
+        return items
+    }
     
     @Published var model: Model
     
