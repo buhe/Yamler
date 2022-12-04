@@ -10,7 +10,7 @@ import Yams
 
 struct Model {
 
-    var rawYaml: [String: Any] = ["123": ["1": 2], "abc": 12]
+    var rawYaml: [String: Any] = ["123": ["1": 2], "abc": 12, "jjj": [111]]
     func yaml() throws -> Data {
         let yaml = try Yams.dump(object: rawYaml)
         return yaml.data(using: .utf8)!
