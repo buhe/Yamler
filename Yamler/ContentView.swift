@@ -47,7 +47,8 @@ struct ItemsView: View {
                 ForEach(items) {
                     item in
                     NavigationLink {
-                        // edit this
+                        // return self view when value is map.
+                        // edit this when value is raw.
                         ItemEditor(item: item)
                     } label: {
                         HStack {
