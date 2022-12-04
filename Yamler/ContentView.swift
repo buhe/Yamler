@@ -9,12 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var viewModel: ViewModel
-
+    @State var showYaml = false
     var body: some View {
         VStack {
             HStack {
                 Button {
-                    
+               
                 } label: {
                     Image(systemName: "plus")
                 }
@@ -25,13 +25,15 @@ struct ContentView: View {
                 }
 //                EditButton()
                 Button {
-                    
+                   showYaml = !showYaml
                 } label: {
                     Image(systemName: "text.viewfinder")
                 }
             }
             ItemsView(items: viewModel.list(base: nil))
-            ItemRawView(items: try! viewModel.model.yamlStr()).background(Color.yellow)
+            if showYaml {
+                ItemRawView(items: try! viewModel.model.yamlStr()).background(Color.yellow)
+            }
 //            Text(String(data: try! viewModel.model.yaml(),encoding: .utf8)!)
         }
 
