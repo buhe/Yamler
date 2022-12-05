@@ -30,7 +30,7 @@ struct ContentView: View {
                     Image(systemName: "text.viewfinder")
                 }
             }
-            ItemsView(items: viewModel.list(base: nil))
+            ItemsView(items: viewModel.list(base: nil), viewModel: viewModel)
             if showYaml {
                 ItemRawView(items: try! viewModel.model.yamlStr()).background(Color.yellow)
             }
@@ -43,21 +43,26 @@ struct ContentView: View {
 
 struct ItemsView: View {
     @State var items: [Item]
+    var base: Item?
     @State var selection: Set<String> = []
+    var viewModel: ViewModel
     var body: some View {
         NavigationView{
+            if let base = base {
+                Text(base.keyName).font(.title2)
+            }
             List(selection: $selection) {
                 ForEach(items) {
                     item in
                     NavigationLink {
                         // return self view when value is map.
                         // edit this when value is raw.
-                        ItemEditor(item: item)
+                        ItemsView(items: viewModel.list(base: item), base: item, viewModel: viewModel)
                     } label: {
                         HStack {
                             /*@START_MENU_TOKEN@*/Text(item.keyName)/*@END_MENU_TOKEN@*/
                             Spacer()
-                            Text(item.valueType)
+//                            Text(item.valueType)
                         }
                     }
                     
@@ -71,12 +76,6 @@ struct ItemsView: View {
     }
 }
 
-struct ItemEditor: View {
-    var item: Item
-    var body: some View {
-        Text(item.keyName)
-    }
-}
 
 struct ItemRawView: View {
     var items: String
