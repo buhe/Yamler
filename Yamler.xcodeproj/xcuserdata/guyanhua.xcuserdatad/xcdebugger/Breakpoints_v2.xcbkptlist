@@ -52,21 +52,5 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E068F39D-9A30-40C4-BE3C-0F255DC385EA"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Yamler/ViewModel.swift"
-            startingColumnNumber = "50"
-            endingColumnNumber = "50"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "list(base:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

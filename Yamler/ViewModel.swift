@@ -7,7 +7,7 @@
 
 import SwiftUI
 import UniformTypeIdentifiers
-enum ItemType {
+enum ItemType: String {
     case Number
     case Text
     case Map
@@ -50,21 +50,23 @@ class ViewModel: ReferenceFileDocument {
         var items: [Item] = []
         if let farther = farther {
             // from secord row
-//            switch farther.valueType {
-//            case .Array:
-//                // decode to array
-//                for {
-//                    items.append(Item(keyName: <#T##String#>, valueType: <#T##ItemType#>, value: <#T##Any#>, id: <#T##String#>))
-//                }
-//            case .Map:
-//                // decode to map
-//                for {
-//                    items.append(Item(keyName: <#T##String#>, valueType: <#T##ItemType#>, value: <#T##Any#>, id: <#T##String#>))
-//                }
-//            default:
-//                // decode as type
-//                items.append(Item(keyName: <#T##String#>, valueType: <#T##ItemType#>, value: <#T##Any#>, id: <#T##String#>))
-//            }
+            switch farther.valueType {
+            case .Array:
+                let array = farther.value as! [Any]
+                // decode to array
+                for e in array {
+                    items.append(Item(keyName: "index", valueType: itemType(of: String(reflecting: type(of: e))), value: e, id: "index"))
+                }
+            case .Map:
+                let map = farther.value as! [String: Any]
+                // decode to map
+                for (key,value) in map{
+                    items.append(Item(keyName: key, valueType: itemType(of: String(reflecting: type(of: value))), value: value, id: key))
+                }
+            default:
+                // decode as type
+                items.append(Item(keyName: farther.keyName, valueType: farther.valueType, value: farther.value, id: farther.keyName))
+            }
             
         } else {
             

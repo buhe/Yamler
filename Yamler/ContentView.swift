@@ -48,9 +48,9 @@ struct ItemsView: View {
     var viewModel: ViewModel
     var body: some View {
         NavigationView{
-            if let base = base {
-                Text(base.keyName).font(.title2)
-            }
+//            if let base = base {
+//                Text(base.keyName).font(.title2)
+//            }
             List(selection: $selection) {
                 ForEach(items) {
                     item in
@@ -62,7 +62,7 @@ struct ItemsView: View {
                         HStack {
                             /*@START_MENU_TOKEN@*/Text(item.keyName)/*@END_MENU_TOKEN@*/
                             Spacer()
-//                            Text(item.valueType)
+                            Text(item.valueType.rawValue)
                         }
                     }
                     
