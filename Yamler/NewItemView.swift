@@ -11,18 +11,29 @@ struct NewItemView: View {
     @State var type = ItemType.Text
     @State var keyName = ""
     @State var value = ""
+    @State var showValueInput = true
     var body: some View {
         NavigationView {
             Form {
+                TextField("Key", text: $keyName)
                 Picker("Type", selection: $type) {
                     ForEach(ItemType.allCases, id: \.self) {
                         Text($0.rawValue)
                      }
                 }.pickerStyle(SegmentedPickerStyle())
                     .onChange(of: type) {
-                        tag in print("Color tag: \(tag.rawValue)")
+                        tag in
+                        switch tag {
+                        case .Array: showValueInput = false
+                        case .Map: showValueInput = false
+                        default: showValueInput = true
+                        }
                     }
+                if showValueInput {
+                    TextField("Value", text: $value)
+                }
             }
+         
         }
         
     }
