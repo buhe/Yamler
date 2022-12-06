@@ -54,8 +54,8 @@ class ViewModel: ReferenceFileDocument {
             case .Array:
                 let array = farther.value as! [Any]
                 // decode to array
-                for e in array {
-                    items.append(Item(keyName: "index", valueType: itemType(of: String(reflecting: type(of: e))), value: e, id: "index"))
+                for index in 0...array.count-1 {
+                    items.append(Item(keyName: "index \(index)", valueType: itemType(of: String(reflecting: type(of: array[index]))), value: array[index], id: "index \(index)"))
                 }
             case .Map:
                 let map = farther.value as! [String: Any]
