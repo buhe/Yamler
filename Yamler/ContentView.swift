@@ -9,17 +9,39 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var viewModel: ViewModel
-    @State var showYaml = false
-    @State var newItem = false
+
     var body: some View {
         VStack {
+            
+            ItemsView(items: viewModel.list(base: nil), viewModel: viewModel)
+         
+//            Text(String(data: try! viewModel.model.yaml(),encoding: .utf8)!)
+        }
+
+    }
+}
+
+
+struct ItemsView: View {
+    @State var showYaml = false
+    @State var newItem = false
+    
+    @State var items: [Item]
+    var base: Item?
+    @State var selection: Set<String> = []
+    var viewModel: ViewModel
+    var body: some View {
+        NavigationStack{
+//            if let base = base {
+//                Text(base.keyName).font(.title2)
+//            }
             HStack {
                 Button {
                     newItem = !newItem
                 } label: {
                     Image(systemName: "plus")
                 }.popover(isPresented: $newItem) {
-                    NewItemView()
+                    NewItemView(viewModel: viewModel, base: base)
                 }
                 Button {
                     
@@ -33,27 +55,6 @@ struct ContentView: View {
                     Image(systemName: "text.viewfinder")
                 }
             }
-            ItemsView(items: viewModel.list(base: nil), viewModel: viewModel)
-            if showYaml {
-                ItemRawView(items: try! viewModel.model.yamlStr()).background(Color.yellow)
-            }
-//            Text(String(data: try! viewModel.model.yaml(),encoding: .utf8)!)
-        }
-
-    }
-}
-
-
-struct ItemsView: View {
-    @State var items: [Item]
-    var base: Item?
-    @State var selection: Set<String> = []
-    var viewModel: ViewModel
-    var body: some View {
-        NavigationView{
-//            if let base = base {
-//                Text(base.keyName).font(.title2)
-//            }
             List(selection: $selection) {
                 ForEach(items) {
                     item in
@@ -73,6 +74,9 @@ struct ItemsView: View {
                     index in
                 }
                 
+            }
+            if showYaml {
+                ItemRawView(items: try! viewModel.model.yamlStr()).background(Color.yellow)
             }
         }
         
