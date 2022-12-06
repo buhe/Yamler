@@ -10,13 +10,16 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var viewModel: ViewModel
     @State var showYaml = false
+    @State var newItem = false
     var body: some View {
         VStack {
             HStack {
                 Button {
-               
+                    newItem = !newItem
                 } label: {
                     Image(systemName: "plus")
+                }.popover(isPresented: $newItem) {
+                    NewItemView()
                 }
                 Button {
                     

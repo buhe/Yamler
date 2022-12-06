@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F73D168293E0A6B0004B060 /* NormalEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73D167293E0A6B0004B060 /* NormalEditor.swift */; };
-		3F73D16A293E0AAB0004B060 /* MapEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73D169293E0AAB0004B060 /* MapEditor.swift */; };
-		3F73D16C293E0AD10004B060 /* ArrayEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73D16B293E0AD10004B060 /* ArrayEditor.swift */; };
+		3F73D16E293F0C8B0004B060 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73D16D293F0C8B0004B060 /* NewItemView.swift */; };
 		3FE6B47F2938DF5500559FBE /* YamlerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6B47E2938DF5500559FBE /* YamlerApp.swift */; };
 		3FE6B4832938DF5500559FBE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6B4822938DF5500559FBE /* ContentView.swift */; };
 		3FE6B4852938DF5600559FBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FE6B4842938DF5600559FBE /* Assets.xcassets */; };
@@ -41,9 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3F73D167293E0A6B0004B060 /* NormalEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalEditor.swift; sourceTree = "<group>"; };
-		3F73D169293E0AAB0004B060 /* MapEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapEditor.swift; sourceTree = "<group>"; };
-		3F73D16B293E0AD10004B060 /* ArrayEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayEditor.swift; sourceTree = "<group>"; };
+		3F73D16D293F0C8B0004B060 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
 		3FE6B47B2938DF5500559FBE /* Yamler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yamler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE6B47E2938DF5500559FBE /* YamlerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamlerApp.swift; sourceTree = "<group>"; };
 		3FE6B4822938DF5500559FBE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -119,9 +115,7 @@
 				3FE6B4AC2938DFE100559FBE /* Model.swift */,
 				3FE6B4AE2938E00000559FBE /* ViewModel.swift */,
 				3FE6B4B02938E18100559FBE /* Ex.swift */,
-				3F73D167293E0A6B0004B060 /* NormalEditor.swift */,
-				3F73D169293E0AAB0004B060 /* MapEditor.swift */,
-				3F73D16B293E0AD10004B060 /* ArrayEditor.swift */,
+				3F73D16D293F0C8B0004B060 /* NewItemView.swift */,
 			);
 			path = Yamler;
 			sourceTree = "<group>";
@@ -287,13 +281,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F73D16A293E0AAB0004B060 /* MapEditor.swift in Sources */,
+				3F73D16E293F0C8B0004B060 /* NewItemView.swift in Sources */,
 				3FE6B4AF2938E00000559FBE /* ViewModel.swift in Sources */,
-				3F73D16C293E0AD10004B060 /* ArrayEditor.swift in Sources */,
 				3FE6B4B12938E18100559FBE /* Ex.swift in Sources */,
 				3FE6B47F2938DF5500559FBE /* YamlerApp.swift in Sources */,
 				3FE6B4832938DF5500559FBE /* ContentView.swift in Sources */,
-				3F73D168293E0A6B0004B060 /* NormalEditor.swift in Sources */,
 				3FE6B4AD2938DFE100559FBE /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

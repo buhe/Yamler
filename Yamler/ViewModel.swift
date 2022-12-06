@@ -7,7 +7,7 @@
 
 import SwiftUI
 import UniformTypeIdentifiers
-enum ItemType: String {
+enum ItemType: String, CaseIterable {
     case Number
     case Text
     case Map
