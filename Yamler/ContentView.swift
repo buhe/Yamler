@@ -28,7 +28,7 @@ struct ItemsView: View {
     
     @State var items: [Item]
     var base: Item?
-    @State var selection: Set<String> = []
+    
     var viewModel: ViewModel
     var body: some View {
         NavigationStack{
@@ -55,26 +55,16 @@ struct ItemsView: View {
                     Image(systemName: "text.viewfinder")
                 }
             }
-            List(selection: $selection) {
-                ForEach(items) {
-                    item in
-                    NavigationLink {
-                        // return self view when value is map.
-                        // edit this when value is raw.
-                        ItemsView(items: viewModel.list(base: item), base: item, viewModel: viewModel)
-                    } label: {
-                        HStack {
-                            /*@START_MENU_TOKEN@*/Text(item.keyName)/*@END_MENU_TOKEN@*/
-                            Spacer()
-                            Text(item.valueType.rawValue)
-                        }
-                    }
-                    
-                }.onDelete {
-                    index in
+            if let base = base {
+                if base.valueType == ItemType.Boolean || base.valueType == .Text || base.valueType == .Number {
+                    PrimitiveView(item: base)
+                } else {
+                    RowView(items: items, viewModel: viewModel)
                 }
-                
+            } else {
+                RowView(items: items, viewModel: viewModel)
             }
+            
             if showYaml {
                 ItemRawView(items: try! viewModel.model.yamlStr()).background(Color.yellow)
             }
@@ -83,6 +73,42 @@ struct ItemsView: View {
     }
 }
 
+struct PrimitiveView: View {
+    @State var item: Item
+    var body: some View {
+        Text(item.valueType.rawValue)
+//        TextField("Value", value: $item.value as! Binding, format: .number)
+    }
+}
+
+struct RowView: View {
+    @State var selection: Set<String> = []
+    var items: [Item]
+    var viewModel: ViewModel
+    
+    var body: some View {
+        List(selection: $selection) {
+            ForEach(items) {
+                item in
+                NavigationLink {
+                    // return self view when value is map.
+                    // edit this when value is raw.
+                    ItemsView(items: viewModel.list(base: item), base: item, viewModel: viewModel)
+                } label: {
+                    HStack {
+                        /*@START_MENU_TOKEN@*/Text(item.keyName)/*@END_MENU_TOKEN@*/
+                        Spacer()
+                        Text(item.valueType.rawValue)
+                    }
+                }
+                
+            }.onDelete {
+                index in
+            }
+            
+        }
+    }
+}
 
 struct ItemRawView: View {
     var items: String

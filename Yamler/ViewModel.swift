@@ -17,7 +17,7 @@ enum ItemType: String, CaseIterable {
 struct Item: Identifiable {
     let keyName: String
     let valueType: ItemType
-    let value: Any
+    var value: Any
     let id: String
 }
 
@@ -63,9 +63,9 @@ class ViewModel: ReferenceFileDocument {
                 for (key,value) in map{
                     items.append(Item(keyName: key, valueType: itemType(of: String(reflecting: type(of: value))), value: value, id: key))
                 }
-            default:
+            default: break
                 // decode as type
-                items.append(Item(keyName: farther.keyName, valueType: farther.valueType, value: farther.value, id: farther.keyName))
+//                items.append(Item(keyName: farther.keyName, valueType: farther.valueType, value: farther.value, id: farther.keyName))
             }
             
         } else {

@@ -3,4 +3,54 @@
    uuid = "0CCADB55-EE87-4A67-B95E-ABB1F34500A1"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "90E43886-9F46-4E7E-8ED2-DAB5BC99A1DF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Yamler/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "90E43886-9F46-4E7E-8ED2-DAB5BC99A1DF - 24deae5ac0feba43"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.popover&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(isPresented: SwiftUI.Binding&lt;Swift.Bool&gt;, attachmentAnchor: SwiftUI.PopoverAttachmentAnchor, arrowEdge: SwiftUI.Edge, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0, SwiftUI.Button&lt;SwiftUI.Image&gt;, SwiftUI.Button&lt;SwiftUI.Image&gt;)&gt;&gt;, SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;Yamler.PrimitiveView, Yamler.RowView&gt;, Yamler.RowView&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ShapeStyle&gt;(_: &#x3c4;_1_0, ignoresSafeAreaEdges: SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0&gt;)&gt; in Yamler.ItemsView.body.getter : some"
+                  moduleName = "Yamler"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guyanhua/code/github/Yamler/Yamler/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "564">
+               </Location>
+               <Location
+                  uuid = "90E43886-9F46-4E7E-8ED2-DAB5BC99A1DF - 24deae5ac0feba43"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.popover&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(isPresented: SwiftUI.Binding&lt;Swift.Bool&gt;, attachmentAnchor: SwiftUI.PopoverAttachmentAnchor, arrowEdge: SwiftUI.Edge, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0, SwiftUI.Button&lt;SwiftUI.Image&gt;, SwiftUI.Button&lt;SwiftUI.Image&gt;)&gt;&gt;, SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;Yamler.PrimitiveView, Yamler.RowView&gt;, Yamler.RowView&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ShapeStyle&gt;(_: &#x3c4;_1_0, ignoresSafeAreaEdges: SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0&gt;)&gt; in Yamler.ItemsView.body.getter : some"
+                  moduleName = "Yamler"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guyanhua/code/github/Yamler/Yamler/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "2752">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
