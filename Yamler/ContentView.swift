@@ -57,7 +57,7 @@ struct ItemsView: View {
             }
             if let base = base {
                 if base.valueType == ItemType.Boolean || base.valueType == .Text || base.valueType == .Number {
-                    PrimitiveView(item: base)
+                    PrimitiveView(item: base, viewModel: viewModel)
                 } else {
                     RowView(items: items, viewModel: viewModel)
                 }
@@ -75,8 +75,15 @@ struct ItemsView: View {
 
 struct PrimitiveView: View {
     @State var item: Item
+    var viewModel: ViewModel
     var body: some View {
-        Text(item.valueType.rawValue)
+        
+        Text((viewModel.model.rawYaml["1"] as! [Any])[0] as! String)
+        // change rawYaml
+        // 1. access rawYaml from item
+        // 2. case item.valueType cast and access rawYaml
+            // bool use picker select true or false
+            // other use textfeild
 //        TextField("Value", value: $item.value as! Binding, format: .number)
     }
 }
