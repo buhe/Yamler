@@ -76,15 +76,25 @@ struct ItemsView: View {
 struct PrimitiveView: View {
     @State var item: Item
     var viewModel: ViewModel
+//    @State var text: String = ""
+//    @State var num: Int = 12
     var body: some View {
         
-        Text((viewModel.model.rawYaml["1"] as! [Any])[0] as! String)
+//        Text((viewModel.model.rawYaml["1"] as! [Any])[0] as! String)
         // change rawYaml
         // 1. access rawYaml from item
         // 2. case item.valueType cast and access rawYaml
             // bool use picker select true or false
             // other use textfeild
 //        TextField("Value", value: $item.value as! Binding, format: .number)
+        switch item.valueType {
+        case .Number:
+            TextField("", value: $item.num, format: .number)
+        case .Text:
+            TextField("", text: $item.text)
+        default:
+            EmptyView()
+        }
     }
 }
 

@@ -17,14 +17,16 @@ enum ItemType: String, CaseIterable {
 struct Item: Identifiable {
     let keyName: String
     let valueType: ItemType
-    var value: Any
+    var value: Any?
     let id: String
+    var num: Int
+    var text: String
 }
+
 
 class ViewModel: ReferenceFileDocument {
     
     private func itemType(of desc: String) -> ItemType {
-        print("desc is \(desc)")
         if desc.hasPrefix("Swift.Dictionary") {
             return .Map
         }
@@ -55,13 +57,13 @@ class ViewModel: ReferenceFileDocument {
                 let array = farther.value as! [Any]
                 // decode to array
                 for index in 0...array.count-1 {
-                    items.append(Item(keyName: "index \(index)", valueType: itemType(of: String(reflecting: type(of: array[index]))), value: array[index], id: "index \(index)"))
+                    items.append(createItem(by: itemType(of: String(reflecting: type(of: array[index]))), k: "index \(index)", v: array[index]))
                 }
             case .Map:
                 let map = farther.value as! [String: Any]
                 // decode to map
                 for (key,value) in map{
-                    items.append(Item(keyName: key, valueType: itemType(of: String(reflecting: type(of: value))), value: value, id: key))
+                    items.append(createItem(by: itemType(of: String(reflecting: type(of: value))), k: key, v: value))
                 }
             default: break
                 // decode as type
@@ -72,11 +74,22 @@ class ViewModel: ReferenceFileDocument {
             
             // from top
             for (key, value) in model.rawYaml {
-                print("\(key)")
-                items.append(Item(keyName: key, valueType: itemType(of: String(reflecting: type(of: value))) , value: value, id: key))
+                print("value is \(value)")
+                items.append(createItem(by: itemType(of: String(reflecting: type(of: value))), k: key, v: value))
             }
         }
         return items
+    }
+    
+    func createItem(by type: ItemType,k key: String,v value: Any) -> Item {
+        switch type {
+        case .Number:
+            return Item(keyName: key, valueType: type, id: key, num: value as! Int,text: "")
+        case .Text:
+            return Item(keyName: key, valueType: type, id: key, num: 0, text: value as! String)
+        default:
+            return Item(keyName: key, valueType: type, value: value, id: key, num: 0, text: "")
+        }
     }
     
     @Published var model: Model
