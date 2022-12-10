@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct YamlerApp: App {
     var body: some Scene {
-        DocumentGroup(newDocument: {ViewModel()}) { file in
+        DocumentGroup(newDocument: { ViewModel() }) { file in
             ContentView(viewModel: file.document)
         }
     }

@@ -74,9 +74,11 @@ struct ItemsView: View {
 }
 
 struct PrimitiveView: View {
+    @Environment(\.undoManager) var undoManager
+    
     @State var item: Item
     var viewModel: ViewModel
-//    @State var text: String = ""
+    @State var text: String = ""
 //    @State var num: Int = 12
     var body: some View {
         
@@ -88,10 +90,15 @@ struct PrimitiveView: View {
             // other use textfeild
 //        TextField("Value", value: $item.value as! Binding, format: .number)
         switch item.valueType {
-        case .Number:
-            TextField("", value: $item.num, format: .number)
-        case .Text:
-            TextField("", text: $item.text)
+        case .Text, .Number:
+            TextField("", text: $text).onAppear {
+                text = String(describing: item.value)
+            }.onChange(of: text) {
+                c in
+                print(c)
+                viewModel.editItem(father: nil , target: item, newValue: c, undoManager: undoManager)
+                
+            }
         default:
             EmptyView()
         }

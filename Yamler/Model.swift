@@ -33,4 +33,8 @@ struct Model {
         
     }
     
+    mutating func addKey(key: String, value: Any) {
+        rawYaml[key] = value
+    }
+    
 }

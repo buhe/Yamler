@@ -17,10 +17,10 @@ enum ItemType: String, CaseIterable {
 struct Item: Identifiable {
     let keyName: String
     let valueType: ItemType
-    var value: Any?
+    var value: Any
     let id: String
-    var num: Int
-    var text: String
+//    var num: Int
+//    var text: String
 }
 
 
@@ -56,14 +56,14 @@ class ViewModel: ReferenceFileDocument {
             case .Array:
                 let array = farther.value as! [Any]
                 // decode to array
-                for index in 0...array.count-1 {
-                    items.append(createItem(by: itemType(of: String(reflecting: type(of: array[index]))), k: "index \(index)", v: array[index]))
+                for (index,e) in array.enumerated() {
+                    items.append(createItem(by: itemType(of: String(reflecting: type(of: e))), key: "index \(index)", value: e))
                 }
             case .Map:
                 let map = farther.value as! [String: Any]
                 // decode to map
                 for (key,value) in map{
-                    items.append(createItem(by: itemType(of: String(reflecting: type(of: value))), k: key, v: value))
+                    items.append(createItem(by: itemType(of: String(reflecting: type(of: value))), key: key, value: value))
                 }
             default: break
                 // decode as type
@@ -75,25 +75,22 @@ class ViewModel: ReferenceFileDocument {
             // from top
             for (key, value) in model.rawYaml {
                 print("value is \(value)")
-                items.append(createItem(by: itemType(of: String(reflecting: type(of: value))), k: key, v: value))
+                items.append(createItem(by: itemType(of: String(reflecting: type(of: value))), key: key, value: value))
             }
         }
         return items
     }
     
-    func createItem(by type: ItemType,k key: String,v value: Any) -> Item {
-        switch type {
-        case .Number:
-            return Item(keyName: key, valueType: type, id: key, num: value as! Int,text: "")
-        case .Text:
-            return Item(keyName: key, valueType: type, id: key, num: 0, text: value as! String)
-        default:
-            return Item(keyName: key, valueType: type, value: value, id: key, num: 0, text: "")
-        }
+    func createItem(by type: ItemType,key: String,value: Any) -> Item {
+        Item(keyName: key, valueType: type, value: value, id: key)
     }
     
-    @Published var model: Model
-    @Environment(\.undoManager) var undoManager
+    @Published var model: Model {
+        didSet {
+            print(try! model.yamlStr())
+        }
+    }
+
     
     static var readableContentTypes = [UTType.yaml]
     static var writeableContentTypes = [UTType.yaml]
@@ -119,26 +116,37 @@ class ViewModel: ReferenceFileDocument {
     }
     
     // intent
-    
-    func insertItem(father base: Item, use item: Item) {
-        undoablyPerform(operation: "Insert Item") {
-            switch base.valueType {
-            case ItemType.Map: break
-            case ItemType.Array: break
-            default: break
+    func editItem(father base: Item?, target: Item, newValue: Any, undoManager: UndoManager?) {
+        undoablyPerform(operation: "Edit Item", with: undoManager) {
+            model.rawYaml[target.keyName] = newValue
+        }
+    }
+    func insertItem(father base: Item?, use item: Item, undoManager: UndoManager?) {
+        undoablyPerform(operation: "Insert Item", with: undoManager) {
+            if let base { // when base != nil
+                switch base.valueType {
+                case ItemType.Map: break
+                case ItemType.Array: break
+                default: break
+                }
+            }else{
+                // insert to top, top level is map
+//                model.rawYaml[item.keyName] = item.value
+                model.addKey(key: item.keyName, value: item.value)
             }
+            
         }
         
     }
     
-    func deleteItem(father base: Item, use item: Item) {
+    func deleteItem(father base: Item, use item: Item, undoManager: UndoManager?) {
             
-        undoablyPerform(operation: "Delete Item") {
+        undoablyPerform(operation: "Delete Item",with: undoManager) {
             
         }
     }
     
-    func undoablyPerform(operation: String, doit: () -> Void) {
+    func undoablyPerform(operation: String, with undoManager: UndoManager? = nil, doit: () -> Void) {
         let oldModel = model
         doit()
         undoManager?.registerUndo(withTarget: self) { myself in

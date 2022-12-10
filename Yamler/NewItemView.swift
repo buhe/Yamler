@@ -12,6 +12,7 @@ struct NewItemView: View {
     @State var keyName = ""
     @State var value = ""
     @State var showValueInput = true
+    @Environment(\.undoManager) var undoManager
     
     var viewModel: ViewModel
     var base: Item?
@@ -37,11 +38,7 @@ struct NewItemView: View {
                     TextField("Value", text: $value)
                 }
                 Button {
-                    switch type {
-                    case .Array: saveKey()
-                    case .Map: saveKey()
-                    default: saveKeyAndValue()
-                    }
+                    save()
                 } label: {
                     Text("Save")
                 }
@@ -51,12 +48,17 @@ struct NewItemView: View {
         
     }
     
-    private func saveKey() {
-        viewModel.model.rawYaml[keyName] = 0
-    }
     
-    private func saveKeyAndValue() {
-        viewModel.model.rawYaml[keyName] = value
+    private func save() {
+//        viewModel.model.rawYaml[keyName] = value
+        switch type {
+        case .Array:
+            viewModel.insertItem(father: base, use: Item(keyName: keyName, valueType: type, value: [Any](), id: keyName), undoManager: undoManager)
+        case .Map:
+            viewModel.insertItem(father: base, use: Item(keyName: keyName, valueType: type, value: [String:Any](), id: keyName), undoManager: undoManager)
+        default:
+            viewModel.insertItem(father: base, use: Item(keyName: keyName, valueType: type, value: value, id: keyName),undoManager: undoManager)
+        }
     }
 }
 
