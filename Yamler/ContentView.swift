@@ -23,6 +23,8 @@ struct ContentView: View {
 
 
 struct ItemsView: View {
+    @Environment(\.undoManager) var undoManager
+    
     @State var showYaml = false
     @State var newItem = false
     
@@ -41,7 +43,7 @@ struct ItemsView: View {
                 } label: {
                     Image(systemName: "plus")
                 }.popover(isPresented: $newItem) {
-                    NewItemView(viewModel: viewModel, base: base)
+                    NewItemView(undoManager: undoManager, viewModel: viewModel, base: base)
                 }
                 Button {
                     

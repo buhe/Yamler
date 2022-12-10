@@ -12,7 +12,7 @@ struct NewItemView: View {
     @State var keyName = ""
     @State var value = ""
     @State var showValueInput = true
-    @Environment(\.undoManager) var undoManager
+    let undoManager: UndoManager?
     
     var viewModel: ViewModel
     var base: Item?
@@ -62,8 +62,8 @@ struct NewItemView: View {
     }
 }
 
-struct NewItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewItemView(viewModel: ViewModel())
-    }
-}
+//struct NewItemView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NewItemView(viewModel: ViewModel())
+//    }
+//}
