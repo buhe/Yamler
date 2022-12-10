@@ -43,7 +43,9 @@ struct ItemsView: View {
                 } label: {
                     Image(systemName: "plus")
                 }.popover(isPresented: $newItem) {
-                    NewItemView(undoManager: undoManager, viewModel: viewModel, base: base)
+                    NewItemView(undoManager: undoManager, viewModel: viewModel, base: base) {
+                        newItem = false
+                    }
                 }
                 Button {
                     

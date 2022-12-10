@@ -16,6 +16,7 @@ struct NewItemView: View {
     
     var viewModel: ViewModel
     var base: Item?
+    let close: () -> Void
     
     var body: some View {
         NavigationView {
@@ -39,6 +40,7 @@ struct NewItemView: View {
                 }
                 Button {
                     save()
+                    close()
                 } label: {
                     Text("Save")
                 }
