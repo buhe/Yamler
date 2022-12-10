@@ -19,79 +19,14 @@ struct Item: Identifiable {
     let valueType: ItemType
     var value: Any
     let id: String
-//    var num: Int
-//    var text: String
+    var chilren: [Item]
 }
 
 
 class ViewModel: ReferenceFileDocument {
     
-    private func itemType(of desc: String) -> ItemType {
-        if desc.hasPrefix("Swift.Dictionary") {
-            return .Map
-        }
-        if desc.hasPrefix("Swift.Array") {
-            return .Array
-        }
-        if desc.hasPrefix("Swift.Double") {
-            return .Number
-        }
-        if desc.hasPrefix("Swift.Int") {
-            return .Number
-        }
-        if desc.hasPrefix("Swift.String") {
-            return .Text
-        }
-        if desc.hasPrefix("Swift.Bool") {
-            return .Boolean
-        }
-        return .Text
-    }
-    
-    func list(base farther: Item?) -> [Item] {
-        var items: [Item] = []
-        if let farther = farther {
-            // from secord row
-            switch farther.valueType {
-            case .Array:
-                let array = farther.value as! [Any]
-                // decode to array
-                for (index,e) in array.enumerated() {
-                    items.append(createItem(by: itemType(of: String(reflecting: type(of: e))), key: "index \(index)", value: e))
-                }
-            case .Map:
-                let map = farther.value as! [String: Any]
-                // decode to map
-                for (key,value) in map{
-                    items.append(createItem(by: itemType(of: String(reflecting: type(of: value))), key: key, value: value))
-                }
-            default: break
-                // decode as type
-//                items.append(Item(keyName: farther.keyName, valueType: farther.valueType, value: farther.value, id: farther.keyName))
-            }
-            
-        } else {
-            
-            // from top
-            for (key, value) in model.rawYaml {
-                print("value is \(value)")
-                items.append(createItem(by: itemType(of: String(reflecting: type(of: value))), key: key, value: value))
-            }
-        }
-        return items
-    }
-    
-    func createItem(by type: ItemType,key: String,value: Any) -> Item {
-        Item(keyName: key, valueType: type, value: value, id: key)
-    }
-    
-    @Published var model: Model {
-        didSet {
-            print(try! model.yamlStr())
-        }
-    }
+    @Published var model: Model
 
-    
     static var readableContentTypes = [UTType.yaml]
     static var writeableContentTypes = [UTType.yaml]
     

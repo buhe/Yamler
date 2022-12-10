@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             
-            ItemsView(items: viewModel.list(base: nil), viewModel: viewModel)
+            ItemsView(base:nil, items: viewModel.model.wrap(), viewModel: viewModel)
          
 //            Text(String(data: try! viewModel.model.yaml(),encoding: .utf8)!)
         }
@@ -27,10 +27,8 @@ struct ItemsView: View {
     
     @State var showYaml = false
     @State var newItem = false
-    
-    @State var items: [Item]
     var base: Item?
-    
+    var items: [Item]
     var viewModel: ViewModel
     var body: some View {
         NavigationStack{
@@ -59,21 +57,48 @@ struct ItemsView: View {
                     Image(systemName: "text.viewfinder")
                 }
             }
-            if let base = base {
-                if base.valueType == ItemType.Boolean || base.valueType == .Text || base.valueType == .Number {
-                    PrimitiveView(item: base, viewModel: viewModel)
-                } else {
-                    RowView(items: items, viewModel: viewModel)
-                }
-            } else {
-                RowView(items: items, viewModel: viewModel)
-            }
+            
+            BodyView(items: items, viewModel: viewModel)
+           
+            
             
             if showYaml {
                 ItemRawView(items: try! viewModel.model.yamlStr()).background(Color.yellow)
             }
         }
         
+    }
+}
+
+struct BodyView: View {
+    @State var selection: Set<String> = []
+    var items: [Item]
+    var viewModel: ViewModel
+    var body: some View {
+        List(selection: $selection) {
+            ForEach(items) {
+                item in
+                NavigationLink {
+                    // return self view when value is map.
+                    // edit this when value is raw.
+                    if item.chilren.isEmpty {
+                        PrimitiveView(item: item, viewModel: viewModel)
+                    } else {
+                        ItemsView(base: item, items: item.chilren, viewModel: viewModel)
+                    }
+                } label: {
+                    HStack {
+                        /*@START_MENU_TOKEN@*/Text(item.keyName)/*@END_MENU_TOKEN@*/
+                        Spacer()
+                        Text(item.valueType.rawValue)
+                    }
+                }
+                
+            }.onDelete {
+                index in
+            }
+            
+        }
     }
 }
 
@@ -109,34 +134,6 @@ struct PrimitiveView: View {
     }
 }
 
-struct RowView: View {
-    @State var selection: Set<String> = []
-    var items: [Item]
-    var viewModel: ViewModel
-    
-    var body: some View {
-        List(selection: $selection) {
-            ForEach(items) {
-                item in
-                NavigationLink {
-                    // return self view when value is map.
-                    // edit this when value is raw.
-                    ItemsView(items: viewModel.list(base: item), base: item, viewModel: viewModel)
-                } label: {
-                    HStack {
-                        /*@START_MENU_TOKEN@*/Text(item.keyName)/*@END_MENU_TOKEN@*/
-                        Spacer()
-                        Text(item.valueType.rawValue)
-                    }
-                }
-                
-            }.onDelete {
-                index in
-            }
-            
-        }
-    }
-}
 
 struct ItemRawView: View {
     var items: String
