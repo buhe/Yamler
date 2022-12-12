@@ -14,8 +14,8 @@
             filePath = "Yamler/ViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "insertItem(father:use:undoManager:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "Yamler/ViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194">
+            startingLineNumber = "217"
+            endingLineNumber = "217">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -76,10 +76,10 @@
             filePath = "Yamler/ViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189"
-            landmarkName = "undoablyPerform(operation:with:doit:)"
-            landmarkType = "7">
+            startingLineNumber = "212"
+            endingLineNumber = "212"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -92,10 +92,10 @@
             filePath = "Yamler/ViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
-            landmarkName = "undoablyPerform(operation:with:doit:)"
-            landmarkType = "7">
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -108,9 +108,9 @@
             filePath = "Yamler/ViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
-            landmarkName = "insertItem(father:use:undoManager:)"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "deleteItem(father:use:undoManager:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

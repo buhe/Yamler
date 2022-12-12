@@ -146,7 +146,7 @@ class ViewModel: ReferenceFileDocument {
     // intent
     func editItem(father base: Item?, target: Item, newValue: Any, undoManager: UndoManager?) {
         undoablyPerform(operation: "Edit Item", with: undoManager) {
-            model.rawYaml[target.keyName] = newValue
+//            model.rawYaml[target.keyName] = newValue
         }
     }
     func insertItem(father base: Item?, use item: Item, undoManager: UndoManager?) {
@@ -155,11 +155,34 @@ class ViewModel: ReferenceFileDocument {
                 switch base.valueType {
                 case ItemType.Map:
                     var map = base.value as! [String: Any]
-                    map[item.keyName] = item.value
+                    switch item.valueType {
+                    case .Array:
+                        map[item.keyName] = []
+                    case .Map:
+                        map[item.keyName] = [:]
+                    case .Number:
+                        map[item.keyName] = Int(item.value as! String)!
+                    case .Boolean:
+                        map[item.keyName] = false
+                    case .Text:
+                        map[item.keyName] = item.value
+                    }
+                    
                     base.rollback(newValue: map)
                 case ItemType.Array:
                     var array = base.value as! [Any]
-                    array.append(item.value)
+                    switch item.valueType {
+                    case .Array:
+                        array.append([])
+                    case .Map:
+                        array.append([:])
+                    case .Number:
+                        array.append(Int(item.value as! String)!)
+                    case .Boolean:
+                        array.append(false)
+                    case .Text:
+                        array.append(item.value)
+                    }
                     base.rollback(newValue: array)
                 default: break
                 }

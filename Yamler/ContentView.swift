@@ -81,10 +81,12 @@ struct BodyView: View {
                 NavigationLink {
                     // return self view when value is map.
                     // edit this when value is raw.
-                    if item.chilren.isEmpty {
-                        PrimitiveView(item: item, viewModel: viewModel)
-                    } else {
-                        ItemsView(base: item, items: item.chilren, viewModel: viewModel)
+                    switch item.valueType {
+                    case .Text: PrimitiveView(item: item, viewModel: viewModel)
+                    case .Number: PrimitiveView(item: item, viewModel: viewModel)
+                    case .Boolean: PrimitiveView(item: item, viewModel: viewModel)
+                    case .Array: ItemsView(base: item, items: item.chilren, viewModel: viewModel)
+                    case .Map: ItemsView(base: item, items: item.chilren, viewModel: viewModel)
                     }
                 } label: {
                     HStack {
