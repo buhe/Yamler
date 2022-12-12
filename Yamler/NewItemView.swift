@@ -54,18 +54,27 @@ struct NewItemView: View {
                     TextField("Value", text: $value)
                 }
                 if showPicker {
-                    Picker("Ture or Fasle", selection: $boolResult) {
+                    Picker("Value", selection: $boolResult) {
                         ForEach([true, false], id: \.self) {
                             Text($0.description)
                          }
+                    }.pickerStyle(SegmentedPickerStyle())
+                }
+                HStack {
+                    Button {
+                        save()
+                        close()
+                    } label: {
+                        Text("Save")
+                    }
+                    Spacer()
+                    Button {
+                        close()
+                    } label: {
+                        Text("Cancel")
                     }
                 }
-                Button {
-                    save()
-                    close()
-                } label: {
-                    Text("Save")
-                }
+
             }
          
         }
