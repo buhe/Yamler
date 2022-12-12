@@ -123,7 +123,7 @@ struct PrimitiveView: View {
                     TextField("Value", text: $text)
                     .onAppear {
                         text = String(describing: item.value)
-                        print("---\(text)")
+
                     }
 //                    .padding()
                     .onChange(of: text) {

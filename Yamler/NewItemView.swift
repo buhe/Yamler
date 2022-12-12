@@ -12,6 +12,9 @@ struct NewItemView: View {
     @State var keyName = ""
     @State var value = ""
     @State var showValueInput = true
+    @State var showPicker = false
+    @State var boolResult = false
+    
     let undoManager: UndoManager?
     
     var viewModel: ViewModel
@@ -30,13 +33,29 @@ struct NewItemView: View {
                     .onChange(of: type) {
                         tag in
                         switch tag {
-                        case .Array: showValueInput = false
-                        case .Dictionary: showValueInput = false
-                        default: showValueInput = true
+                        case .Array:
+                            showValueInput = false
+                            showPicker = false
+                        case .Dictionary:
+                            showValueInput = false
+                            showPicker = false
+                        case .Boolean:
+                            showValueInput = false
+                            showPicker = true
+                        default:
+                            showValueInput = true
+                            showPicker = false
                         }
                     }
                 if showValueInput {
                     TextField("Value", text: $value)
+                }
+                if showPicker {
+                    Picker("Ture or Fasle", selection: $boolResult) {
+                        ForEach([true, false], id: \.self) {
+                            Text($0.description)
+                         }
+                    }
                 }
                 Button {
                     save()
@@ -58,6 +77,8 @@ struct NewItemView: View {
             viewModel.insertItem(father: base, use: Item(keyName: keyName, valueType: type, value: [Any](), id: keyName,chilren: [],parent: [], vm: viewModel), undoManager: undoManager)
         case .Dictionary:
             viewModel.insertItem(father: base, use: Item(keyName: keyName, valueType: type, value: [String:Any](), id: keyName, chilren: [],parent: [], vm: viewModel), undoManager: undoManager)
+        case .Boolean:
+            viewModel.insertItem(father: base, use: Item(keyName: keyName, valueType: type, value: boolResult, id: keyName,chilren: [],parent: [], vm: viewModel),undoManager: undoManager)
         default:
             viewModel.insertItem(father: base, use: Item(keyName: keyName, valueType: type, value: value, id: keyName,chilren: [],parent: [], vm: viewModel),undoManager: undoManager)
         }

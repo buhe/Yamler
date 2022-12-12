@@ -171,6 +171,8 @@ class ViewModel: ReferenceFileDocument {
                 target.editRollback(newValue: newValue)
             case .Number:
                 target.editRollback(newValue: Int(newValue as! String)!)
+            case .Boolean:
+                target.editRollback(newValue: newValue)
             default: break
             }
         }
