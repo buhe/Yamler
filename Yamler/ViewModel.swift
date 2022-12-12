@@ -10,7 +10,7 @@ import UniformTypeIdentifiers
 enum ItemType: String, CaseIterable {
     case Number
     case Text
-    case Map
+    case Dictionary
     case Array
     case Boolean
 }
@@ -27,7 +27,7 @@ struct Item: Identifiable {
     func rollback(newValue: Any) {
         if let p = parent.first {
             switch p.valueType {
-            case .Map:
+            case .Dictionary:
                 var map = p.value as! [String: Any]
                 map[p.keyName] = newValue
                 p.rollback(newValue: map)
@@ -75,7 +75,7 @@ class ViewModel: ReferenceFileDocument {
     
     func itemType(of desc: String) -> ItemType {
         if desc.hasPrefix("Swift.Dictionary") {
-            return .Map
+            return .Dictionary
         }
         if desc.hasPrefix("Swift.Array") {
             return .Array
@@ -109,7 +109,7 @@ class ViewModel: ReferenceFileDocument {
             var subItems: [Item] = []
             
             switch type {
-            case .Map: subItems = wrapMap(baseValue: value, parent:[Item(keyName: String(index), valueType: type, value: value, id: String(index), chilren: [], parent: parent, vm: self)])
+            case .Dictionary: subItems = wrapMap(baseValue: value, parent:[Item(keyName: String(index), valueType: type, value: value, id: String(index), chilren: [], parent: parent, vm: self)])
             case .Array: subItems = warpArray(baseValue: value, parent:[Item(keyName: String(index), valueType: type, value: value, id: String(index), chilren: [], parent: parent, vm: self)])
             default: break
             }
@@ -128,7 +128,7 @@ class ViewModel: ReferenceFileDocument {
             var subItems: [Item] = []
             
             switch type {
-            case .Map: subItems = wrapMap(baseValue: value, parent: [Item(keyName: key, valueType: type, value: value, id: key, chilren: [], parent: parent, vm: self)])
+            case .Dictionary: subItems = wrapMap(baseValue: value, parent: [Item(keyName: key, valueType: type, value: value, id: key, chilren: [], parent: parent, vm: self)])
             case .Array: subItems = warpArray(baseValue: value, parent: [Item(keyName: key, valueType: type, value: value, id: key, chilren: [], parent: parent, vm: self)])
             default: break
             }
@@ -153,12 +153,12 @@ class ViewModel: ReferenceFileDocument {
         undoablyPerform(operation: "Insert Item", with: undoManager) {
             if let base { // when base != nil
                 switch base.valueType {
-                case ItemType.Map:
+                case ItemType.Dictionary:
                     var map = base.value as! [String: Any]
                     switch item.valueType {
                     case .Array:
                         map[item.keyName] = []
-                    case .Map:
+                    case .Dictionary:
                         map[item.keyName] = [:]
                     case .Number:
                         map[item.keyName] = Int(item.value as! String)!
@@ -174,7 +174,7 @@ class ViewModel: ReferenceFileDocument {
                     switch item.valueType {
                     case .Array:
                         array.append([])
-                    case .Map:
+                    case .Dictionary:
                         array.append([:])
                     case .Number:
                         array.append(Int(item.value as! String)!)

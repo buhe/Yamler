@@ -83,7 +83,7 @@ struct BodyView: View {
                     // edit this when value is raw.
                     switch item.valueType {
                     case .Text, .Number, .Boolean: PrimitiveView(item: item, viewModel: viewModel)
-                    case .Array, .Map: ItemsView(base: item, items: item.chilren, viewModel: viewModel)
+                    case .Array, .Dictionary: ItemsView(base: item, items: item.chilren, viewModel: viewModel)
                     }
                 } label: {
                     HStack {

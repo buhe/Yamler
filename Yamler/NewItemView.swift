@@ -31,7 +31,7 @@ struct NewItemView: View {
                         tag in
                         switch tag {
                         case .Array: showValueInput = false
-                        case .Map: showValueInput = false
+                        case .Dictionary: showValueInput = false
                         default: showValueInput = true
                         }
                     }
@@ -56,7 +56,7 @@ struct NewItemView: View {
         switch type {
         case .Array:
             viewModel.insertItem(father: base, use: Item(keyName: keyName, valueType: type, value: [Any](), id: keyName,chilren: [],parent: [], vm: viewModel), undoManager: undoManager)
-        case .Map:
+        case .Dictionary:
             viewModel.insertItem(father: base, use: Item(keyName: keyName, valueType: type, value: [String:Any](), id: keyName, chilren: [],parent: [], vm: viewModel), undoManager: undoManager)
         default:
             viewModel.insertItem(father: base, use: Item(keyName: keyName, valueType: type, value: value, id: keyName,chilren: [],parent: [], vm: viewModel),undoManager: undoManager)
