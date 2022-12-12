@@ -24,7 +24,10 @@ struct NewItemView: View {
     var body: some View {
         NavigationView {
             Form {
-                TextField("Key", text: $keyName)
+                if isTop() || isNotArray() {
+                    TextField("Key", text: $keyName)
+                }
+                
                 Picker("Type", selection: $type) {
                     ForEach(ItemType.allCases, id: \.self) {
                         Text($0.rawValue)
@@ -69,6 +72,13 @@ struct NewItemView: View {
         
     }
     
+    private func isTop() -> Bool {
+        base == nil
+    }
+    
+    private func isNotArray() -> Bool {
+        base != nil && base?.valueType != .Array
+    }
     
     private func save() {
 //        viewModel.model.rawYaml[keyName] = value

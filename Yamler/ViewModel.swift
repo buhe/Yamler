@@ -39,7 +39,6 @@ struct Item: Identifiable {
             }
         } else {
             // top level
-            print("top is \(keyName) \(newValue)")
             vm.model.rawYaml[keyName] = newValue
         }
     }
@@ -59,7 +58,6 @@ struct Item: Identifiable {
             }
         } else {
             // top level
-            print("edit top is \(keyName) \(newValue)")
             vm.model.rawYaml[keyName] = newValue
         }
     }
@@ -132,7 +130,7 @@ class ViewModel: ReferenceFileDocument {
             case .Array: subItems = warpArray(baseValue: value, parent:[Item(keyName: String(index), valueType: type, value: value, id: String(index), chilren: [], parent: parent, vm: self)])
             default: break
             }
-            let base = wrapItem(by: type, key: "index \(index)", value: value, chilren: subItems, parent: parent)
+            let base = wrapItem(by: type, key: String(index), value: value, chilren: subItems, parent: parent)
             items.append(base)
         }
         return items
