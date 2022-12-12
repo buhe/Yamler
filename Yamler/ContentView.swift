@@ -28,7 +28,7 @@ struct ItemsView: View {
     var items: [Item]
     var viewModel: ViewModel
     var body: some View {
-        NavigationStack{
+//        NavigationView {
             HStack {
                 Button {
                     newItem = !newItem
@@ -61,7 +61,7 @@ struct ItemsView: View {
             }
         }
         
-    }
+//    }
 }
 
 struct BodyView: View {
