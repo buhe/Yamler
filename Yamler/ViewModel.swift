@@ -14,12 +14,35 @@ enum ItemType: String, CaseIterable {
     case Array
     case Boolean
 }
+//struct KeyType {
+//    let keyName: String
+//    let valueType: ItemType
+//    var value: Any
+//}
 struct Item: Identifiable {
     let keyName: String
     let valueType: ItemType
     var value: Any
     let id: String
     var chilren: [Item]
+    var parent: [Item]
+    var vm: ViewModel
+    
+    func rollback(newValue: Any) {
+        if let p = parent.first {
+            switch p.valueType {
+            case .Map:
+                var map = p.value as! [String: Any]
+                map[p.keyName] = newValue
+                p.rollback(newValue: map)
+            default:break
+            }
+        } else {
+            // top level
+            print("top is \(newValue)")
+            vm.model.rawYaml[keyName] = newValue
+        }
+    }
 }
 
 
@@ -50,6 +73,76 @@ class ViewModel: ReferenceFileDocument {
         model = Model()
     }
     
+    func itemType(of desc: String) -> ItemType {
+        if desc.hasPrefix("Swift.Dictionary") {
+            return .Map
+        }
+        if desc.hasPrefix("Swift.Array") {
+            return .Array
+        }
+        if desc.hasPrefix("Swift.Double") {
+            return .Number
+        }
+        if desc.hasPrefix("Swift.Int") {
+            return .Number
+        }
+        if desc.hasPrefix("Swift.String") {
+            return .Text
+        }
+        if desc.hasPrefix("Swift.Bool") {
+            return .Boolean
+        }
+        return .Text
+    }
+    func wrap() -> [Item] {
+        let i = wrapMap(baseValue: model.rawYaml, parent: [])
+        print("-- \(i)")
+        return i
+    }
+    
+    func warpArray(baseValue: Any, parent: [Item]) -> [Item] {
+        let array = baseValue as! [Any]
+        var items: [Item] = []
+        // decode to array
+        for (index,value) in array.enumerated() {
+            let type = itemType(of: String(reflecting: type(of: value)))
+            var subItems: [Item] = []
+            
+            switch type {
+            case .Map: subItems = wrapMap(baseValue: value, parent:[Item(keyName: String(index), valueType: type, value: value, id: String(index), chilren: [], parent: parent, vm: self)])
+            case .Array: subItems = warpArray(baseValue: value, parent:[Item(keyName: String(index), valueType: type, value: value, id: String(index), chilren: [], parent: parent, vm: self)])
+            default: break
+            }
+            let base = wrapItem(by: type, key: "index \(index)", value: value, chilren: subItems, parent: parent)
+            items.append(base)
+        }
+        return items
+    }
+    
+    func wrapMap(baseValue: Any, parent: [Item]) -> [Item] {
+        let map = baseValue as! [String: Any]
+        var items: [Item] = []
+        // decode to map
+        for (key,value) in map {
+            let type = itemType(of: String(reflecting: type(of: value)))
+            var subItems: [Item] = []
+            
+            switch type {
+            case .Map: subItems = wrapMap(baseValue: value, parent: [Item(keyName: key, valueType: type, value: value, id: key, chilren: [], parent: parent, vm: self)])
+            case .Array: subItems = warpArray(baseValue: value, parent: [Item(keyName: key, valueType: type, value: value, id: key, chilren: [], parent: parent, vm: self)])
+            default: break
+            }
+            let base = wrapItem(by: type, key: key, value: value, chilren: subItems, parent: parent)
+            items.append(base)
+            
+        }
+        return items
+    }
+    
+    func wrapItem(by type: ItemType,key: String,value: Any,chilren: [Item],parent: [Item]) -> Item {
+        Item(keyName: key, valueType: type, value: value, id: key, chilren: chilren,parent: parent, vm: self)
+    }
+    
     // intent
     func editItem(father base: Item?, target: Item, newValue: Any, undoManager: UndoManager?) {
         undoablyPerform(operation: "Edit Item", with: undoManager) {
@@ -60,7 +153,25 @@ class ViewModel: ReferenceFileDocument {
         undoablyPerform(operation: "Insert Item", with: undoManager) {
             if let base { // when base != nil
                 switch base.valueType {
-                case ItemType.Map: break
+                case ItemType.Map:
+//                    var t = model.rawYaml["123"] as! [String: Any]
+//                    var r = t["1"] as! [String: Any]
+//                    r[item.keyName] = item.value
+//                    // r == base.value
+//                    t["1"] = r
+//                    model.rawYaml["123"] = t
+//                    var b = base
+                    var map = base.value as! [String: Any]
+                    map[item.keyName] = item.value
+                    base.rollback(newValue: map)
+//                    while let p = b.parent.first {
+//                        // when type is map
+//                        var pMap = p.value as! [String: Any]
+//                        pMap[p.keyName] = map
+//                        // swap
+//                        map = pMap
+//                        b =
+//                    }
                 case ItemType.Array: break
                 default: break
                 }

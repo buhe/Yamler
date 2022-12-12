@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             
-            ItemsView(base:nil, items: viewModel.model.wrap(), viewModel: viewModel)
+            ItemsView(base:nil, items: viewModel.wrap(), viewModel: viewModel)
          
 //            Text(String(data: try! viewModel.model.yaml(),encoding: .utf8)!)
         }
