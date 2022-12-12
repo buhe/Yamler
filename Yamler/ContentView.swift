@@ -116,7 +116,6 @@ struct PrimitiveView: View {
         // 2. case item.valueType cast and access rawYaml
             // bool use picker select true or false
             // other use textfeild
-//        TextField("Value", value: $item.value as! Binding, format: .number)
         switch item.valueType {
         case .Text, .Number:
             Form {
@@ -124,13 +123,13 @@ struct PrimitiveView: View {
                     TextField("Value", text: $text)
                     .onAppear {
                         text = String(describing: item.value)
+                        print("---\(text)")
                     }
 //                    .padding()
                     .onChange(of: text) {
                         c in
-                        print(c)
+
                         viewModel.editItem(target: item, newValue: c, undoManager: undoManager)
-                        
                     }
                 }
             }

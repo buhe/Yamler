@@ -39,7 +39,27 @@ struct Item: Identifiable {
             }
         } else {
             // top level
-            print("top is \(newValue)")
+            print("top is \(keyName) \(newValue)")
+            vm.model.rawYaml[keyName] = newValue
+        }
+    }
+    
+    func editRollback(newValue: Any) {
+        if let p = parent.first {
+            switch p.valueType {
+            case .Dictionary:
+                var map = p.value as! [String: Any]
+                map[keyName] = newValue
+                p.editRollback(newValue: map)
+            case .Array:
+                var array = p.value as! [Any]
+                array[Int(keyName)!] = newValue
+                p.editRollback(newValue: array)
+            default:break
+            }
+        } else {
+            // top level
+            print("edit top is \(keyName) \(newValue)")
             vm.model.rawYaml[keyName] = newValue
         }
     }
@@ -96,7 +116,6 @@ class ViewModel: ReferenceFileDocument {
     }
     func wrap() -> [Item] {
         let i = wrapMap(baseValue: model.rawYaml, parent: [])
-        print("-- \(i)")
         return i
     }
     
@@ -147,6 +166,13 @@ class ViewModel: ReferenceFileDocument {
     func editItem(target: Item, newValue: Any, undoManager: UndoManager?) {
         undoablyPerform(operation: "Edit Item", with: undoManager) {
 //            model.rawYaml[target.keyName] = newValue
+            switch target.valueType {
+            case .Text:
+                target.editRollback(newValue: newValue)
+            case .Number:
+                target.editRollback(newValue: Int(newValue as! String)!)
+            default: break
+            }
         }
     }
     func insertItem(father base: Item?, use item: Item, undoManager: UndoManager?) {

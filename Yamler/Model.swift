@@ -12,7 +12,7 @@ struct Model {
     
     
     
-    var rawYaml: [String: Any] = ["123": ["1": ["ww": 123]], "abc": 12, "jjj": [111, [["2": true]]], "a": "11", "b": false]
+    var rawYaml: [String: Any] = ["123": [:]]
     func yaml() throws -> Data {
         let yaml = try Yams.dump(object: rawYaml)
         return yaml.data(using: .utf8)!
@@ -24,7 +24,6 @@ struct Model {
     
     init(from yaml: Data) throws {
         if let s = String(data: yaml, encoding: .utf8) {
-            print("str is \(s)")
             if let value = try Yams.load(yaml: s) as? [String: Any] {
                 rawYaml = value
             }
