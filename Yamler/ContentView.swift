@@ -12,10 +12,7 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            
             ItemsView(base:nil, items: viewModel.wrap(), viewModel: viewModel)
-         
-//            Text(String(data: try! viewModel.model.yaml(),encoding: .utf8)!)
         }
 
     }
@@ -32,9 +29,6 @@ struct ItemsView: View {
     var viewModel: ViewModel
     var body: some View {
         NavigationStack{
-//            if let base = base {
-//                Text(base.keyName).font(.title2)
-//            }
             HStack {
                 Button {
                     newItem = !newItem
