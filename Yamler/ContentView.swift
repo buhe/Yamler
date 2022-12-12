@@ -38,18 +38,20 @@ struct ItemsView: View {
                     NewItemView(undoManager: undoManager, viewModel: viewModel, base: base) {
                         newItem = false
                     }
-                }
+                }.padding(.horizontal)
+                
                 Button {
                     
                 } label: {
                     Image(systemName: "pencil")
-                }
+                }.padding(.trailing)
 //                EditButton()
                 Button {
                    showYaml = !showYaml
                 } label: {
                     Image(systemName: "text.viewfinder")
-                }
+                }.padding(.trailing)
+                Spacer()
             }
             
             BodyView(items: items, viewModel: viewModel)
