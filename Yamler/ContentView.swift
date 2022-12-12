@@ -119,14 +119,44 @@ struct PrimitiveView: View {
 //        TextField("Value", value: $item.value as! Binding, format: .number)
         switch item.valueType {
         case .Text, .Number:
-            TextField("", text: $text).onAppear {
-                text = String(describing: item.value)
-            }.onChange(of: text) {
-                c in
-                print(c)
-                viewModel.editItem(father: nil , target: item, newValue: c, undoManager: undoManager)
-                
+            Form {
+                Section(header: Text("Value")) {
+                    TextField("", text: $text).onAppear {
+                        text = String(describing: item.value)
+                    }
+//                    .padding()
+                    .onChange(of: text) {
+                        c in
+                        print(c)
+                        viewModel.editItem(father: nil , target: item, newValue: c, undoManager: undoManager)
+                        
+                    }
+                }
             }
+            
+        case .Boolean:
+            Form {
+                Section(header: Text("Value")) {
+                    Picker("Ture or Fasle", selection: $text) {
+                        ForEach(["true", "false"], id: \.self) {
+                            Text($0)
+                         }
+                    }.onAppear {
+                        text = String(describing: item.value)
+                    }
+//                        .padding()
+                        .pickerStyle(SegmentedPickerStyle())
+                        .onChange(of: text) {
+                            tag in
+                            switch tag {
+                            case "true": break
+                            case "false": break
+                            default: break
+                            }
+                        }
+                }
+            }
+            
         default:
             EmptyView()
         }
