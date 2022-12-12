@@ -144,7 +144,7 @@ class ViewModel: ReferenceFileDocument {
     }
     
     // intent
-    func editItem(father base: Item?, target: Item, newValue: Any, undoManager: UndoManager?) {
+    func editItem(target: Item, newValue: Any, undoManager: UndoManager?) {
         undoablyPerform(operation: "Edit Item", with: undoManager) {
 //            model.rawYaml[target.keyName] = newValue
         }

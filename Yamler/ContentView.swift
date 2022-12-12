@@ -121,14 +121,15 @@ struct PrimitiveView: View {
         case .Text, .Number:
             Form {
                 Section(header: Text("Value")) {
-                    TextField("", text: $text).onAppear {
+                    TextField("Value", text: $text)
+                    .onAppear {
                         text = String(describing: item.value)
                     }
 //                    .padding()
                     .onChange(of: text) {
                         c in
                         print(c)
-                        viewModel.editItem(father: nil , target: item, newValue: c, undoManager: undoManager)
+                        viewModel.editItem(target: item, newValue: c, undoManager: undoManager)
                         
                     }
                 }
@@ -141,19 +142,20 @@ struct PrimitiveView: View {
                         ForEach(["true", "false"], id: \.self) {
                             Text($0)
                          }
-                    }.onAppear {
+                    }
+                    .onAppear {
                         text = String(describing: item.value)
                     }
 //                        .padding()
-                        .pickerStyle(SegmentedPickerStyle())
-                        .onChange(of: text) {
-                            tag in
-                            switch tag {
-                            case "true": break
-                            case "false": break
-                            default: break
-                            }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .onChange(of: text) {
+                        tag in
+                        switch tag {
+                        case "true": viewModel.editItem(target: item, newValue: true, undoManager: undoManager)
+                        case "false": viewModel.editItem(target: item, newValue: false, undoManager: undoManager)
+                        default: break
                         }
+                    }
                 }
             }
             
