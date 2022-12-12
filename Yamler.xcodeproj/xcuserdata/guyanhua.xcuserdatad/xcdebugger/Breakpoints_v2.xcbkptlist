@@ -14,8 +14,8 @@
             filePath = "Yamler/ViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "insertItem(father:use:undoManager:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "Yamler/ViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206">
+            startingLineNumber = "194"
+            endingLineNumber = "194">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -76,8 +76,8 @@
             filePath = "Yamler/ViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
             landmarkName = "undoablyPerform(operation:with:doit:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -92,8 +92,8 @@
             filePath = "Yamler/ViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
             landmarkName = "undoablyPerform(operation:with:doit:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -108,8 +108,8 @@
             filePath = "Yamler/ViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "insertItem(father:use:undoManager:)"
             landmarkType = "7">
          </BreakpointContent>

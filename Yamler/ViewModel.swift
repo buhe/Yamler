@@ -14,11 +14,7 @@ enum ItemType: String, CaseIterable {
     case Array
     case Boolean
 }
-//struct KeyType {
-//    let keyName: String
-//    let valueType: ItemType
-//    var value: Any
-//}
+
 struct Item: Identifiable {
     let keyName: String
     let valueType: ItemType
@@ -35,6 +31,10 @@ struct Item: Identifiable {
                 var map = p.value as! [String: Any]
                 map[p.keyName] = newValue
                 p.rollback(newValue: map)
+            case .Array:
+                var array = p.value as! [Any]
+                array[Int(p.keyName)!] = newValue
+                p.rollback(newValue: array)
             default:break
             }
         } else {
@@ -154,25 +154,13 @@ class ViewModel: ReferenceFileDocument {
             if let base { // when base != nil
                 switch base.valueType {
                 case ItemType.Map:
-//                    var t = model.rawYaml["123"] as! [String: Any]
-//                    var r = t["1"] as! [String: Any]
-//                    r[item.keyName] = item.value
-//                    // r == base.value
-//                    t["1"] = r
-//                    model.rawYaml["123"] = t
-//                    var b = base
                     var map = base.value as! [String: Any]
                     map[item.keyName] = item.value
                     base.rollback(newValue: map)
-//                    while let p = b.parent.first {
-//                        // when type is map
-//                        var pMap = p.value as! [String: Any]
-//                        pMap[p.keyName] = map
-//                        // swap
-//                        map = pMap
-//                        b =
-//                    }
-                case ItemType.Array: break
+                case ItemType.Array:
+                    var array = base.value as! [Any]
+                    array.append(item.value)
+                    base.rollback(newValue: array)
                 default: break
                 }
             }else{
