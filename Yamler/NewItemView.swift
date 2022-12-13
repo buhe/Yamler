@@ -73,7 +73,7 @@ struct NewItemView: View {
                     } label: {
                         Text("Cancel")
                     }
-                }
+                }.buttonStyle(.plain)
 
             }
          
