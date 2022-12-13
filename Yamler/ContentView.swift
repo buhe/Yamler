@@ -78,8 +78,9 @@ struct BodyView: View {
                     // return self view when value is map.
                     // edit this when value is raw.
                     switch item.valueType {
-                    case .Text, .Number, .Boolean: PrimitiveView(item: item, viewModel: viewModel)
+                    case .Text, .Number, .Boolean: PrimitiveView(item: item, viewModel: viewModel).navigationTitle("Edit \(item.keyName)")
                     case .Array, .Dictionary: ItemsView(base: item, items: item.chilren, viewModel: viewModel)
+                            .navigationTitle("\(item.valueType.rawValue): \(item.keyName)")
                     }
                 } label: {
                     HStack {
