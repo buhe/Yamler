@@ -11,9 +11,11 @@ struct ContentView: View {
     @ObservedObject var viewModel: ViewModel
 
     var body: some View {
-        VStack {
+        NavigationStack {
+            Text("Yamler").font(.title2).fontWeight(.bold).padding(.bottom)
             ItemsView(base:nil, items: viewModel.wrap(), viewModel: viewModel)
         }
+//        }.navigationBarBackButtonHidden(true)
 
     }
 }
@@ -28,7 +30,7 @@ struct ItemsView: View {
     var items: [Item]
     var viewModel: ViewModel
     var body: some View {
-//        NavigationView {
+//        NavigationStack {
             HStack {
                 Button {
                     newItem = !newItem

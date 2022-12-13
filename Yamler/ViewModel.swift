@@ -189,7 +189,7 @@ class ViewModel: ReferenceFileDocument {
                     case .Number:
                         map[item.keyName] = Int(item.value as! String)!
                     case .Boolean:
-                        map[item.keyName] = false
+                        map[item.keyName] = item.value
                     case .Text:
                         map[item.keyName] = item.value
                     }
@@ -205,7 +205,7 @@ class ViewModel: ReferenceFileDocument {
                     case .Number:
                         array.append(Int(item.value as! String)!)
                     case .Boolean:
-                        array.append(false)
+                        array.append(item.value)
                     case .Text:
                         array.append(item.value)
                     }
