@@ -24,6 +24,9 @@ struct ContentView: View {
 struct ItemsView: View {
     @Environment(\.undoManager) var undoManager
     
+    @State var editMode: EditMode = .inactive
+    @State var isEditing = false
+    
     @State var showYaml = false
     @State var newItem = false
     var base: Item?
@@ -43,11 +46,12 @@ struct ItemsView: View {
                 }.padding(.horizontal)
                 
                 Button {
-                    
+                    isEditing.toggle()
+                    editMode = isEditing ? .active : .inactive
                 } label: {
-                    Image(systemName: "pencil")
+                    isEditing ? Image(systemName: "rectangle.and.pencil.and.ellipsis") :  Image(systemName: "pencil")
                 }.padding(.trailing)
-//                EditButton()
+
                 Button {
                    showYaml = !showYaml
                 } label: {
@@ -56,7 +60,7 @@ struct ItemsView: View {
                 Spacer()
             }
             
-            BodyView(items: items, viewModel: viewModel)
+            BodyView(items: items, viewModel: viewModel, editMode: $editMode)
            
             
             
@@ -72,6 +76,7 @@ struct BodyView: View {
     @State var selection: Set<String> = []
     var items: [Item]
     var viewModel: ViewModel
+    @Binding var editMode: EditMode
     var body: some View {
         List(selection: $selection) {
             ForEach(items) {
@@ -93,10 +98,12 @@ struct BodyView: View {
                 }
                 
             }.onDelete {
-                index in
+                index in print("invoke delete.")
+            }.onMove {
+                sets, index in print("invoke move.")
             }
             
-        }
+        }.environment(\.editMode, $editMode)
     }
 }
 
