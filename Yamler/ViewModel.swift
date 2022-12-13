@@ -171,7 +171,7 @@ class ViewModel: ReferenceFileDocument {
                 target.editRollback(newValue: Int(newValue as! String)!)
             case .Boolean:
                 target.editRollback(newValue: newValue)
-            default: break
+            default: assert(false, "edit item error")
             }
         }
     }
@@ -210,7 +210,7 @@ class ViewModel: ReferenceFileDocument {
                         array.append(item.value)
                     }
                     base.rollback(newValue: array)
-                default: break
+                default: assert(false, "insert item error")
                 }
             }else{
                 // insert to top, top level is map
@@ -222,10 +222,26 @@ class ViewModel: ReferenceFileDocument {
         
     }
     
-    func deleteItem(father base: Item, use item: Item, undoManager: UndoManager?) {
+    func deleteItem(target item: Item, undoManager: UndoManager?) {
             
         undoablyPerform(operation: "Delete Item",with: undoManager) {
-            
+            if let father = item.parent.first {
+                switch father.valueType {
+                case .Array:
+                    var array = father.value as! [Any]
+                    array.remove(at: Int(item.keyName)!)
+                    father.rollback(newValue: array)
+                case .Dictionary:
+                    var map = father.value as! [String: Any]
+                    map.removeValue(forKey: item.keyName)
+                    father.rollback(newValue: map)
+                default: assert(false, "delete item error")
+                }
+                
+            } else {
+                // top level
+                model.rawYaml[item.keyName] = nil
+            }
         }
     }
     

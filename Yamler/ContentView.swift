@@ -74,9 +74,13 @@ struct ItemsView: View {
 
 struct BodyView: View {
     @State var selection: Set<String> = []
+    
     var items: [Item]
     var viewModel: ViewModel
     @Binding var editMode: EditMode
+    
+    @Environment(\.undoManager) var undoManager
+    
     var body: some View {
         List(selection: $selection) {
             ForEach(items) {
@@ -98,9 +102,14 @@ struct BodyView: View {
                 }
                 
             }.onDelete {
-                index in print("invoke delete.")
+                sets in
+                for i in sets.makeIterator() {
+                    let item = items[i]
+                    viewModel.deleteItem(target: item, undoManager: undoManager)
+                    print("invoke delete. \(item)")
+                }
             }.onMove {
-                sets, index in print("invoke move.")
+                sets, index in print("invoke move. \(sets.first ?? 0) index is \(index)")
             }
             
         }.environment(\.editMode, $editMode)
