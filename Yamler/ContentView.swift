@@ -64,7 +64,7 @@ struct ItemsView: View {
                 Button {
                    showYaml = !showYaml
                 } label: {
-                    Image(systemName: "text.viewfinder")
+                    showYaml ? Image(systemName: "eye.slash") : Image(systemName: "eye")
                 }.padding(.trailing)
                 Spacer()
             }

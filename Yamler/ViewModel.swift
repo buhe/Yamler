@@ -7,6 +7,11 @@
 
 import SwiftUI
 import UniformTypeIdentifiers
+
+enum ShowRawState {
+    case Idle
+    case Loading
+}
 enum ItemType: String, CaseIterable {
     case Number
     case Text
