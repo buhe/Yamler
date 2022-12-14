@@ -19,11 +19,11 @@ struct WebView: UIViewRepresentable {
     func updateUIView(_ webView: WKWebView, context: Context) {
         
         let baseUrl = Bundle.main.url(forResource: "index", withExtension: "html")!
-        print(baseUrl)
+//        print(baseUrl)
         var component = URLComponents(url: baseUrl, resolvingAgainstBaseURL: false)
         component?.queryItems = [URLQueryItem(name: "items", value: string)]
         if let url = component?.url {
-            print(url)
+//            print(url)
             webView.loadFileURL(url, allowingReadAccessTo: url)
         }
         
