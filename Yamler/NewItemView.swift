@@ -16,6 +16,9 @@ struct NewItemView: View {
     @State var boolResult = false
     @FocusState private var keyFocused: Bool
     
+    @State var alertMsg = ""
+    @State var alertShow = false
+    
     let undoManager: UndoManager?
     
     var viewModel: ViewModel
@@ -66,7 +69,7 @@ struct NewItemView: View {
                 HStack {
                     Button {
                         save()
-                        close()
+                        
                     } label: {
                         Text("Save")
                     }
@@ -78,6 +81,8 @@ struct NewItemView: View {
                     }
                 }.buttonStyle(.plain)
 
+            }.alert(alertMsg, isPresented: $alertShow) {
+                Button("OK", role: .cancel) { }
             }
          
         }
@@ -97,12 +102,25 @@ struct NewItemView: View {
         switch type {
         case .Array:
             viewModel.insertItem(father: base, use: Item(keyName: keyName, valueType: type, value: [Any](), id: keyName,chilren: [],parent: [], vm: viewModel), undoManager: undoManager)
+            close()
         case .Dictionary:
             viewModel.insertItem(father: base, use: Item(keyName: keyName, valueType: type, value: [String:Any](), id: keyName, chilren: [],parent: [], vm: viewModel), undoManager: undoManager)
+            close()
         case .Boolean:
             viewModel.insertItem(father: base, use: Item(keyName: keyName, valueType: type, value: boolResult, id: keyName,chilren: [],parent: [], vm: viewModel),undoManager: undoManager)
-        default:
+            close()
+        case .Number:
+            if let num = Int(value) {
+                viewModel.insertItem(father: base, use: Item(keyName: keyName, valueType: type, value: num, id: keyName,chilren: [],parent: [], vm: viewModel),undoManager: undoManager)
+                close()
+            } else {
+                alertMsg = "Enter value is not number."
+                alertShow = true
+            }
+            
+        case .Text:
             viewModel.insertItem(father: base, use: Item(keyName: keyName, valueType: type, value: value, id: keyName,chilren: [],parent: [], vm: viewModel),undoManager: undoManager)
+            close()
         }
     }
 }

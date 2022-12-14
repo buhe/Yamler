@@ -165,10 +165,8 @@ class ViewModel: ReferenceFileDocument {
         undoablyPerform(operation: "Edit Item", with: undoManager) {
 //            model.rawYaml[target.keyName] = newValue
             switch target.valueType {
-            case .Text:
+            case .Text, .Number:
                 target.editRollback(newValue: newValue)
-            case .Number:
-                target.editRollback(newValue: Int(newValue as! String)!)
             case .Boolean:
                 target.editRollback(newValue: newValue)
             default: assert(false, "edit item error")
@@ -187,7 +185,7 @@ class ViewModel: ReferenceFileDocument {
                     case .Dictionary:
                         map[item.keyName] = [:]
                     case .Number:
-                        map[item.keyName] = Int(item.value as! String)!
+                        map[item.keyName] = item.value
                     case .Boolean:
                         map[item.keyName] = item.value
                     case .Text:

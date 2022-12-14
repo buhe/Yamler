@@ -132,6 +132,8 @@ struct PrimitiveView: View {
     @State var item: Item
     var viewModel: ViewModel
     @State var text: String = ""
+    @State var alertMsg = ""
+    @State var alertShow = false
 //    @State var num: Int = 12
     var body: some View {
         
@@ -149,9 +151,11 @@ struct PrimitiveView: View {
             }.padding(.horizontal)
             
             Spacer()
+        }.alert(alertMsg, isPresented: $alertShow) {
+            Button("OK", role: .cancel) { }
         }
         switch item.valueType {
-        case .Text, .Number:
+        case .Text:
             Form {
                 Section(header: Text("Value")) {
                     TextField("Value", text: $text)
@@ -162,12 +166,31 @@ struct PrimitiveView: View {
 //                    .padding()
                     .onChange(of: text) {
                         c in
-
                         viewModel.editItem(target: item, newValue: c, undoManager: undoManager)
                     }
                 }
             }
-            
+        case .Number:
+            Form {
+                Section(header: Text("Value")) {
+                    TextField("Value", text: $text)
+                    .onAppear {
+                        text = String(describing: item.value)
+
+                    }
+//                    .padding()
+                    .onChange(of: text) {
+                        c in
+                        if let num = Int(c) {
+                            viewModel.editItem(target: item, newValue: num, undoManager: undoManager)
+                        } else {
+                            alertMsg = "Enter value is not number."
+                            alertShow = true
+                        }
+                        
+                    }
+                }
+            }
         case .Boolean:
             Form {
                 Section(header: Text("Value")) {
@@ -203,7 +226,7 @@ struct ItemRawView: View {
     var items: String
     var body: some View {
 //        Text(items).frame(alignment: .leading).padding()
-        WebView(string: items)
+        WebView(string: items).padding()
     }
 }
 
