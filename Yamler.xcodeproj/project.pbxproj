@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F108AB62949759F0053D5A0 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F108AB52949759F0053D5A0 /* WebView.swift */; };
+		3F234ECF2949B33A00BAD21C /* robots.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F234EAE2949B33A00BAD21C /* robots.txt */; };
+		3F234ED02949B33A00BAD21C /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 3F234EAF2949B33A00BAD21C /* favicon.ico */; };
+		3F234ED12949B33A00BAD21C /* logo192.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F234EB02949B33A00BAD21C /* logo192.png */; };
+		3F234ED72949B33A00BAD21C /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F234EBA2949B33A00BAD21C /* manifest.json */; };
+		3F234EDF2949B33A00BAD21C /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3F234ECB2949B33A00BAD21C /* index.html */; };
+		3F234EE02949B33A00BAD21C /* asset-manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F234ECD2949B33A00BAD21C /* asset-manifest.json */; };
+		3F234EE12949B33A00BAD21C /* logo512.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F234ECE2949B33A00BAD21C /* logo512.png */; };
+		3F234F082949B6C700BAD21C /* main.26091a51.js in Resources */ = {isa = PBXBuildFile; fileRef = 3F234F022949B6C700BAD21C /* main.26091a51.js */; };
+		3F234F092949B6C700BAD21C /* 787.af4277d5.chunk.js in Resources */ = {isa = PBXBuildFile; fileRef = 3F234F052949B6C700BAD21C /* 787.af4277d5.chunk.js */; };
+		3F234F0A2949B6C700BAD21C /* main.26091a51.js.LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F234F062949B6C700BAD21C /* main.26091a51.js.LICENSE.txt */; };
+		3F234F0B2949B6C700BAD21C /* main.e6c13ad2.css in Resources */ = {isa = PBXBuildFile; fileRef = 3F234F072949B6C700BAD21C /* main.e6c13ad2.css */; };
+		3F234F0C2949B7AA00BAD21C /* 787.af4277d5.chunk.js.map in Resources */ = {isa = PBXBuildFile; fileRef = 3F234F032949B6C700BAD21C /* 787.af4277d5.chunk.js.map */; };
+		3F234F0D2949B7AA00BAD21C /* main.26091a51.js.map in Resources */ = {isa = PBXBuildFile; fileRef = 3F234F012949B6C700BAD21C /* main.26091a51.js.map */; };
+		3F234F0E2949B7AA00BAD21C /* main.e6c13ad2.css.map in Resources */ = {isa = PBXBuildFile; fileRef = 3F234F042949B6C700BAD21C /* main.e6c13ad2.css.map */; };
 		3F73D16E293F0C8B0004B060 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73D16D293F0C8B0004B060 /* NewItemView.swift */; };
 		3FE6B47F2938DF5500559FBE /* YamlerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6B47E2938DF5500559FBE /* YamlerApp.swift */; };
 		3FE6B4832938DF5500559FBE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6B4822938DF5500559FBE /* ContentView.swift */; };
@@ -39,6 +54,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F108AB52949759F0053D5A0 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		3F234EAE2949B33A00BAD21C /* robots.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = robots.txt; sourceTree = "<group>"; };
+		3F234EAF2949B33A00BAD21C /* favicon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = favicon.ico; sourceTree = "<group>"; };
+		3F234EB02949B33A00BAD21C /* logo192.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo192.png; sourceTree = "<group>"; };
+		3F234EBA2949B33A00BAD21C /* manifest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
+		3F234ECB2949B33A00BAD21C /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		3F234ECD2949B33A00BAD21C /* asset-manifest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "asset-manifest.json"; sourceTree = "<group>"; };
+		3F234ECE2949B33A00BAD21C /* logo512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo512.png; sourceTree = "<group>"; };
+		3F234F012949B6C700BAD21C /* main.26091a51.js.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = main.26091a51.js.map; sourceTree = "<group>"; };
+		3F234F022949B6C700BAD21C /* main.26091a51.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.26091a51.js; sourceTree = "<group>"; };
+		3F234F032949B6C700BAD21C /* 787.af4277d5.chunk.js.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = 787.af4277d5.chunk.js.map; sourceTree = "<group>"; };
+		3F234F042949B6C700BAD21C /* main.e6c13ad2.css.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = main.e6c13ad2.css.map; sourceTree = "<group>"; };
+		3F234F052949B6C700BAD21C /* 787.af4277d5.chunk.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = 787.af4277d5.chunk.js; sourceTree = "<group>"; };
+		3F234F062949B6C700BAD21C /* main.26091a51.js.LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.26091a51.js.LICENSE.txt; sourceTree = "<group>"; };
+		3F234F072949B6C700BAD21C /* main.e6c13ad2.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = main.e6c13ad2.css; sourceTree = "<group>"; };
 		3F73D16D293F0C8B0004B060 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
 		3FE6B47B2938DF5500559FBE /* Yamler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yamler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE6B47E2938DF5500559FBE /* YamlerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamlerApp.swift; sourceTree = "<group>"; };
@@ -106,6 +136,20 @@
 		3FE6B47D2938DF5500559FBE /* Yamler */ = {
 			isa = PBXGroup;
 			children = (
+				3F234F052949B6C700BAD21C /* 787.af4277d5.chunk.js */,
+				3F234F032949B6C700BAD21C /* 787.af4277d5.chunk.js.map */,
+				3F234F022949B6C700BAD21C /* main.26091a51.js */,
+				3F234F062949B6C700BAD21C /* main.26091a51.js.LICENSE.txt */,
+				3F234F012949B6C700BAD21C /* main.26091a51.js.map */,
+				3F234F072949B6C700BAD21C /* main.e6c13ad2.css */,
+				3F234F042949B6C700BAD21C /* main.e6c13ad2.css.map */,
+				3F234ECD2949B33A00BAD21C /* asset-manifest.json */,
+				3F234EAF2949B33A00BAD21C /* favicon.ico */,
+				3F234ECB2949B33A00BAD21C /* index.html */,
+				3F234EB02949B33A00BAD21C /* logo192.png */,
+				3F234ECE2949B33A00BAD21C /* logo512.png */,
+				3F234EBA2949B33A00BAD21C /* manifest.json */,
+				3F234EAE2949B33A00BAD21C /* robots.txt */,
 				3FE6B47E2938DF5500559FBE /* YamlerApp.swift */,
 				3FE6B4842938DF5600559FBE /* Assets.xcassets */,
 				3FE6B4862938DF5600559FBE /* Info.plist */,
@@ -116,6 +160,7 @@
 				3FE6B4AE2938E00000559FBE /* ViewModel.swift */,
 				3FE6B4B02938E18100559FBE /* Ex.swift */,
 				3F73D16D293F0C8B0004B060 /* NewItemView.swift */,
+				3F108AB52949759F0053D5A0 /* WebView.swift */,
 			);
 			path = Yamler;
 			sourceTree = "<group>";
@@ -255,8 +300,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F234F0C2949B7AA00BAD21C /* 787.af4277d5.chunk.js.map in Resources */,
+				3F234F0D2949B7AA00BAD21C /* main.26091a51.js.map in Resources */,
+				3F234F0E2949B7AA00BAD21C /* main.e6c13ad2.css.map in Resources */,
+				3F234ECF2949B33A00BAD21C /* robots.txt in Resources */,
+				3F234F082949B6C700BAD21C /* main.26091a51.js in Resources */,
+				3F234F0A2949B6C700BAD21C /* main.26091a51.js.LICENSE.txt in Resources */,
 				3FE6B48A2938DF5600559FBE /* Preview Assets.xcassets in Resources */,
+				3F234F0B2949B6C700BAD21C /* main.e6c13ad2.css in Resources */,
+				3F234ED72949B33A00BAD21C /* manifest.json in Resources */,
+				3F234F092949B6C700BAD21C /* 787.af4277d5.chunk.js in Resources */,
+				3F234ED12949B33A00BAD21C /* logo192.png in Resources */,
+				3F234EE02949B33A00BAD21C /* asset-manifest.json in Resources */,
+				3F234ED02949B33A00BAD21C /* favicon.ico in Resources */,
+				3F234EDF2949B33A00BAD21C /* index.html in Resources */,
 				3FE6B4852938DF5600559FBE /* Assets.xcassets in Resources */,
+				3F234EE12949B33A00BAD21C /* logo512.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +346,7 @@
 				3FE6B47F2938DF5500559FBE /* YamlerApp.swift in Sources */,
 				3FE6B4832938DF5500559FBE /* ContentView.swift in Sources */,
 				3FE6B4AD2938DFE100559FBE /* Model.swift in Sources */,
+				3F108AB62949759F0053D5A0 /* WebView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

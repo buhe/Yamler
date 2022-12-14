@@ -65,7 +65,7 @@ struct ItemsView: View {
             
             
             if showYaml {
-                ItemRawView(items: try! viewModel.model.yamlStr()).background(Color.yellow)
+                ItemRawView(items: try! viewModel.model.yamlStr())//.background(Color.yellow)
             }
         }
         
@@ -183,7 +183,8 @@ struct PrimitiveView: View {
 struct ItemRawView: View {
     var items: String
     var body: some View {
-        Text(items).frame(alignment: .leading).padding()
+//        Text(items).frame(alignment: .leading).padding()
+        WebView(string: items)
     }
 }
 
