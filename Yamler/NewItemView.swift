@@ -85,7 +85,7 @@ struct NewItemView: View {
                 Button("OK", role: .cancel) { }
             }
          
-        }
+        }.frame(minWidth: 500, minHeight: 220)
         
     }
     
