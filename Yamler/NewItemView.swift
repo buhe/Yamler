@@ -14,6 +14,7 @@ struct NewItemView: View {
     @State var showValueInput = true
     @State var showPicker = false
     @State var boolResult = false
+    @FocusState private var keyFocused: Bool
     
     let undoManager: UndoManager?
     
@@ -25,7 +26,9 @@ struct NewItemView: View {
         NavigationView {
             Form {
                 if isTop() || isNotArray() {
-                    TextField("Key", text: $keyName)
+                    TextField("Key", text: $keyName).onAppear{
+                        keyFocused = true
+                    }.focused($keyFocused)
                 }
                 
                 Picker("Type", selection: $type) {
