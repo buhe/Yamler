@@ -18,14 +18,24 @@ struct WebView: UIViewRepresentable {
 
     func updateUIView(_ webView: WKWebView, context: Context) {
         
-        let baseUrl = Bundle.main.url(forResource: "index", withExtension: "html")!.absoluteString
+        let baseUrl = Bundle.main.url(forResource: "index", withExtension: "html")!
         print(baseUrl)
-        let queryString = "?var=1232123232"
-        let allUrl = URL(string: baseUrl + queryString)!
-        webView.loadFileURL(allUrl, allowingReadAccessTo: allUrl)
+        var component = URLComponents(url: baseUrl, resolvingAgainstBaseURL: false)
+        component?.queryItems = [URLQueryItem(name: "items", value: string)]
+        if let url = component?.url {
+            print(url)
+            webView.loadFileURL(url, allowingReadAccessTo: url)
+        }
         
         
-//        let url = URL(string: "http://localhost:3000")!
-//        webView.load(URLRequest(url: url))
+        
+//        let baseUrl = URL(string: "http://localhost:3000")!
+//        var component = URLComponents(url: baseUrl, resolvingAgainstBaseURL: false)
+//        component?.queryItems = [URLQueryItem(name: "items", value: string)]
+//        if let url = component?.url {
+//            print(url)
+//            webView.load(URLRequest(url: url))
+//        }
+        
     }
 }
