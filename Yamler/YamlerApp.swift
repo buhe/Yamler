@@ -11,7 +11,7 @@ import SwiftUI
 struct YamlerApp: App {
     var body: some Scene {
         DocumentGroup(newDocument: { ViewModel() }) { file in
-            ContentView(viewModel: file.document).toolbar(.hidden).toolbarRole(.automatic)
+            ContentView(viewModel: file.document).toolbarRole(.automatic)
         }
     }
 }

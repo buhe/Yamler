@@ -12,7 +12,7 @@ struct ContentView: View {
 
     var body: some View {
         NavigationStack {
-            Text("Yamler").font(.title2).fontWeight(.bold).padding(.bottom)
+//            Text("Yamler").font(.title2).fontWeight(.bold).padding(.bottom)
             ItemsView(base:nil, items: viewModel.wrap(), viewModel: viewModel)
         }
 //        }.navigationBarBackButtonHidden(true)
@@ -23,6 +23,7 @@ struct ContentView: View {
 
 struct ItemsView: View {
     @Environment(\.undoManager) var undoManager
+    @Environment(\.presentationMode) var presentationMode
     
     @State var editMode: EditMode = .inactive
     @State var isEditing = false
@@ -35,6 +36,14 @@ struct ItemsView: View {
     var body: some View {
 //        NavigationStack {
             HStack {
+                if let base {
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Label(base.valueType.rawValue + ":" + base.keyName, systemImage: "arrowshape.backward")
+                    }.padding(.horizontal)
+                }
+                
                 Button {
                     newItem = !newItem
                 } label: {
@@ -60,7 +69,7 @@ struct ItemsView: View {
                 Spacer()
             }
             
-            BodyView(items: items, viewModel: viewModel, editMode: $editMode)
+            BodyView(items: items, viewModel: viewModel, editMode: $editMode).toolbar(.hidden)
            
             
             
@@ -89,7 +98,7 @@ struct BodyView: View {
                     // return self view when value is map.
                     // edit this when value is raw.
                     switch item.valueType {
-                    case .Text, .Number, .Boolean: PrimitiveView(item: item, viewModel: viewModel).navigationTitle("Edit \(item.keyName)")
+                    case .Text, .Number, .Boolean: PrimitiveView(item: item, viewModel: viewModel).toolbar(.hidden).navigationTitle("Edit \(item.keyName)")
                     case .Array, .Dictionary: ItemsView(base: item, items: item.chilren, viewModel: viewModel)
                             .navigationTitle("\(item.valueType.rawValue): \(item.keyName)")
                     }
@@ -118,6 +127,7 @@ struct BodyView: View {
 
 struct PrimitiveView: View {
     @Environment(\.undoManager) var undoManager
+    @Environment(\.presentationMode) var presentationMode
     
     @State var item: Item
     var viewModel: ViewModel
@@ -131,6 +141,15 @@ struct PrimitiveView: View {
         // 2. case item.valueType cast and access rawYaml
             // bool use picker select true or false
             // other use textfeild
+        HStack {
+            Button {
+                presentationMode.wrappedValue.dismiss()
+            } label: {
+                Label(item.valueType.rawValue + ":" + item.keyName, systemImage: "arrowshape.backward")
+            }.padding(.horizontal)
+            
+            Spacer()
+        }
         switch item.valueType {
         case .Text, .Number:
             Form {
