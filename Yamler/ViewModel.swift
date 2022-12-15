@@ -34,11 +34,12 @@ struct Item: Identifiable {
             switch p.valueType {
             case .Dictionary:
                 var map = p.value as! [String: Any]
-                map[p.keyName] = newValue
+                map[keyName] = newValue
                 p.rollback(newValue: map)
             case .Array:
                 var array = p.value as! [Any]
-                array[Int(p.keyName)!] = newValue
+//                print("bug: \(p.keyName)   \(keyName)")
+                array[Int(keyName)!] = newValue
                 p.rollback(newValue: array)
             default:break
             }
@@ -196,7 +197,7 @@ class ViewModel: ReferenceFileDocument {
                     case .Text:
                         map[item.keyName] = item.value
                     }
-                    
+                    print("\(base)")
                     base.rollback(newValue: map)
                 case ItemType.Array:
                     var array = base.value as! [Any]
