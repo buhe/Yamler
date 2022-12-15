@@ -110,6 +110,9 @@ class ViewModel: ReferenceFileDocument {
         if desc.hasPrefix("Swift.Int") {
             return .Number
         }
+        if desc.hasPrefix("Swift.Float") {
+            return .Number
+        }
         if desc.hasPrefix("Swift.String") {
             return .Text
         }
@@ -207,7 +210,7 @@ class ViewModel: ReferenceFileDocument {
                     case .Dictionary:
                         array.append([:])
                     case .Number:
-                        array.append(Int(item.value as! String)!)
+                        array.append(item.value)
                     case .Boolean:
                         array.append(item.value)
                     case .Text:

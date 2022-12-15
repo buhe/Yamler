@@ -57,7 +57,15 @@ struct NewItemView: View {
                         }
                     }
                 if showValueInput {
-                    TextField("Value", text: $value)
+                    switch type {
+                    case .Number:
+                        TextField("Value", text: $value)
+                            .textInputAutocapitalization(.never)
+                            .disableAutocorrection(true)
+                    default:
+                        TextField("Value", text: $value)
+                    }
+                    
                 }
                 if showPicker {
                     Picker("Value", selection: $boolResult) {
@@ -114,8 +122,14 @@ struct NewItemView: View {
                 viewModel.insertItem(father: base, use: Item(keyName: keyName, valueType: type, value: num, id: keyName,chilren: [],parent: [], vm: viewModel),undoManager: undoManager)
                 close()
             } else {
-                alertMsg = "Enter value is not number."
-                alertShow = true
+                if let num = Float(value) {
+                    viewModel.insertItem(father: base, use: Item(keyName: keyName, valueType: type, value: num, id: keyName,chilren: [],parent: [], vm: viewModel),undoManager: undoManager)
+                    close()
+                } else {
+                    alertMsg = "Enter value is not number."
+                    alertShow = true
+                }
+            
             }
             
         case .Text:

@@ -117,9 +117,10 @@ struct BodyView: View {
                     viewModel.deleteItem(target: item, undoManager: undoManager)
 //                    print("invoke delete. \(item)")
                 }
-            }.onMove {
-                sets, index in print("invoke move. \(sets.first ?? 0) index is \(index)")
             }
+//            .onMove {
+//                sets, index in print("invoke move. \(sets.first ?? 0) index is \(index)")
+//            }
             
         }.environment(\.editMode, $editMode)
     }
@@ -174,6 +175,8 @@ struct PrimitiveView: View {
             Form {
                 Section(header: Text("Value")) {
                     TextField("Value", text: $text)
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
                     .onAppear {
                         text = String(describing: item.value)
 
@@ -184,8 +187,20 @@ struct PrimitiveView: View {
                         if let num = Int(c) {
                             viewModel.editItem(target: item, newValue: num, undoManager: undoManager)
                         } else {
-                            alertMsg = "Enter value is not number."
-                            alertShow = true
+                            if let num = Float(c) {
+                                viewModel.editItem(target: item, newValue: num, undoManager: undoManager)
+                            } else {
+                                if c.isEmpty {
+                                    return
+                                }
+                                if c.hasPrefix("-") {
+                                    // c is only -
+                                    return
+                                }
+                                alertMsg = "Enter value is not number."
+                                alertShow = true
+                            }
+                            
                         }
                         
                     }
