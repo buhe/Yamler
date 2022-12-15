@@ -115,7 +115,7 @@ struct BodyView: View {
                 for i in sets.makeIterator() {
                     let item = items[i]
                     viewModel.deleteItem(target: item, undoManager: undoManager)
-                    print("invoke delete. \(item)")
+//                    print("invoke delete. \(item)")
                 }
             }.onMove {
                 sets, index in print("invoke move. \(sets.first ?? 0) index is \(index)")
