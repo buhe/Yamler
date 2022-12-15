@@ -8,21 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		3F108AB62949759F0053D5A0 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F108AB52949759F0053D5A0 /* WebView.swift */; };
-		3F234F162949CA1000BAD21C /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 3F234F0F2949CA1000BAD21C /* favicon.ico */; };
-		3F234F172949CA1000BAD21C /* logo192.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F234F102949CA1000BAD21C /* logo192.png */; };
-		3F234F182949CA1000BAD21C /* logo512.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F234F112949CA1000BAD21C /* logo512.png */; };
-		3F234F192949CA1000BAD21C /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3F234F122949CA1000BAD21C /* index.html */; };
-		3F234F1A2949CA1000BAD21C /* asset-manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F234F132949CA1000BAD21C /* asset-manifest.json */; };
-		3F234F1B2949CA1000BAD21C /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F234F142949CA1000BAD21C /* manifest.json */; };
-		3F234F1C2949CA1000BAD21C /* robots.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F234F152949CA1000BAD21C /* robots.txt */; };
-		3F234F222949CA3400BAD21C /* main.9ee957f7.js.LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F234F1D2949CA3300BAD21C /* main.9ee957f7.js.LICENSE.txt */; };
-		3F234F232949CA3400BAD21C /* main.9ee957f7.js in Resources */ = {isa = PBXBuildFile; fileRef = 3F234F1F2949CA3400BAD21C /* main.9ee957f7.js */; };
-		3F234F242949CA3400BAD21C /* 787.af4277d5.chunk.js in Resources */ = {isa = PBXBuildFile; fileRef = 3F234F202949CA3400BAD21C /* 787.af4277d5.chunk.js */; };
-		3F234F252949CA5500BAD21C /* 787.af4277d5.chunk.js.map in Resources */ = {isa = PBXBuildFile; fileRef = 3F234F1E2949CA3300BAD21C /* 787.af4277d5.chunk.js.map */; };
-		3F234F262949CA5500BAD21C /* main.9ee957f7.js.map in Resources */ = {isa = PBXBuildFile; fileRef = 3F234F212949CA3400BAD21C /* main.9ee957f7.js.map */; };
-		3F234F292949CA7C00BAD21C /* main.e6c13ad2.css in Resources */ = {isa = PBXBuildFile; fileRef = 3F234F282949CA7C00BAD21C /* main.e6c13ad2.css */; };
-		3F234F2A2949CA9900BAD21C /* main.e6c13ad2.css.map in Resources */ = {isa = PBXBuildFile; fileRef = 3F234F272949CA7C00BAD21C /* main.e6c13ad2.css.map */; };
 		3F73D16E293F0C8B0004B060 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73D16D293F0C8B0004B060 /* NewItemView.swift */; };
+		3F8088BF294B21070081EC2F /* 787.af4277d5.chunk.js in Resources */ = {isa = PBXBuildFile; fileRef = 3F8088B1294B21070081EC2F /* 787.af4277d5.chunk.js */; };
+		3F8088C0294B21070081EC2F /* robots.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F8088B2294B21070081EC2F /* robots.txt */; };
+		3F8088C1294B21070081EC2F /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3F8088B3294B21070081EC2F /* index.html */; };
+		3F8088C2294B21070081EC2F /* logo512.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F8088B4294B21070081EC2F /* logo512.png */; };
+		3F8088C3294B21070081EC2F /* asset-manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F8088B7294B21070081EC2F /* asset-manifest.json */; };
+		3F8088C4294B21070081EC2F /* logo192.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F8088B8294B21070081EC2F /* logo192.png */; };
+		3F8088C5294B21070081EC2F /* main.6397b630.js.LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F8088B9294B21070081EC2F /* main.6397b630.js.LICENSE.txt */; };
+		3F8088C6294B21070081EC2F /* main.6397b630.js in Resources */ = {isa = PBXBuildFile; fileRef = 3F8088BA294B21070081EC2F /* main.6397b630.js */; };
+		3F8088C7294B21070081EC2F /* main.e6c13ad2.css in Resources */ = {isa = PBXBuildFile; fileRef = 3F8088BB294B21070081EC2F /* main.e6c13ad2.css */; };
+		3F8088C8294B21070081EC2F /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F8088BD294B21070081EC2F /* manifest.json */; };
+		3F8088C9294B21070081EC2F /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 3F8088BE294B21070081EC2F /* favicon.ico */; };
+		3F8088CA294B211E0081EC2F /* 787.af4277d5.chunk.js.map in Resources */ = {isa = PBXBuildFile; fileRef = 3F8088B5294B21070081EC2F /* 787.af4277d5.chunk.js.map */; };
+		3F8088CB294B211E0081EC2F /* main.6397b630.js.map in Resources */ = {isa = PBXBuildFile; fileRef = 3F8088BC294B21070081EC2F /* main.6397b630.js.map */; };
+		3F8088CC294B211E0081EC2F /* main.e6c13ad2.css.map in Resources */ = {isa = PBXBuildFile; fileRef = 3F8088B6294B21070081EC2F /* main.e6c13ad2.css.map */; };
 		3FE6B47F2938DF5500559FBE /* YamlerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6B47E2938DF5500559FBE /* YamlerApp.swift */; };
 		3FE6B4832938DF5500559FBE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6B4822938DF5500559FBE /* ContentView.swift */; };
 		3FE6B4852938DF5600559FBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FE6B4842938DF5600559FBE /* Assets.xcassets */; };
@@ -55,21 +55,21 @@
 
 /* Begin PBXFileReference section */
 		3F108AB52949759F0053D5A0 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
-		3F234F0F2949CA1000BAD21C /* favicon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = favicon.ico; sourceTree = "<group>"; };
-		3F234F102949CA1000BAD21C /* logo192.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo192.png; sourceTree = "<group>"; };
-		3F234F112949CA1000BAD21C /* logo512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo512.png; sourceTree = "<group>"; };
-		3F234F122949CA1000BAD21C /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		3F234F132949CA1000BAD21C /* asset-manifest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "asset-manifest.json"; sourceTree = "<group>"; };
-		3F234F142949CA1000BAD21C /* manifest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
-		3F234F152949CA1000BAD21C /* robots.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = robots.txt; sourceTree = "<group>"; };
-		3F234F1D2949CA3300BAD21C /* main.9ee957f7.js.LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.9ee957f7.js.LICENSE.txt; sourceTree = "<group>"; };
-		3F234F1E2949CA3300BAD21C /* 787.af4277d5.chunk.js.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = 787.af4277d5.chunk.js.map; sourceTree = "<group>"; };
-		3F234F1F2949CA3400BAD21C /* main.9ee957f7.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.9ee957f7.js; sourceTree = "<group>"; };
-		3F234F202949CA3400BAD21C /* 787.af4277d5.chunk.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = 787.af4277d5.chunk.js; sourceTree = "<group>"; };
-		3F234F212949CA3400BAD21C /* main.9ee957f7.js.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = main.9ee957f7.js.map; sourceTree = "<group>"; };
-		3F234F272949CA7C00BAD21C /* main.e6c13ad2.css.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = main.e6c13ad2.css.map; sourceTree = "<group>"; };
-		3F234F282949CA7C00BAD21C /* main.e6c13ad2.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = main.e6c13ad2.css; sourceTree = "<group>"; };
 		3F73D16D293F0C8B0004B060 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
+		3F8088B1294B21070081EC2F /* 787.af4277d5.chunk.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = 787.af4277d5.chunk.js; sourceTree = "<group>"; };
+		3F8088B2294B21070081EC2F /* robots.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = robots.txt; sourceTree = "<group>"; };
+		3F8088B3294B21070081EC2F /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		3F8088B4294B21070081EC2F /* logo512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo512.png; sourceTree = "<group>"; };
+		3F8088B5294B21070081EC2F /* 787.af4277d5.chunk.js.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = 787.af4277d5.chunk.js.map; sourceTree = "<group>"; };
+		3F8088B6294B21070081EC2F /* main.e6c13ad2.css.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = main.e6c13ad2.css.map; sourceTree = "<group>"; };
+		3F8088B7294B21070081EC2F /* asset-manifest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "asset-manifest.json"; sourceTree = "<group>"; };
+		3F8088B8294B21070081EC2F /* logo192.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo192.png; sourceTree = "<group>"; };
+		3F8088B9294B21070081EC2F /* main.6397b630.js.LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.6397b630.js.LICENSE.txt; sourceTree = "<group>"; };
+		3F8088BA294B21070081EC2F /* main.6397b630.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.6397b630.js; sourceTree = "<group>"; };
+		3F8088BB294B21070081EC2F /* main.e6c13ad2.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = main.e6c13ad2.css; sourceTree = "<group>"; };
+		3F8088BC294B21070081EC2F /* main.6397b630.js.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = main.6397b630.js.map; sourceTree = "<group>"; };
+		3F8088BD294B21070081EC2F /* manifest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
+		3F8088BE294B21070081EC2F /* favicon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = favicon.ico; sourceTree = "<group>"; };
 		3FE6B47B2938DF5500559FBE /* Yamler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yamler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE6B47E2938DF5500559FBE /* YamlerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamlerApp.swift; sourceTree = "<group>"; };
 		3FE6B4822938DF5500559FBE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -136,20 +136,20 @@
 		3FE6B47D2938DF5500559FBE /* Yamler */ = {
 			isa = PBXGroup;
 			children = (
-				3F234F282949CA7C00BAD21C /* main.e6c13ad2.css */,
-				3F234F272949CA7C00BAD21C /* main.e6c13ad2.css.map */,
-				3F234F202949CA3400BAD21C /* 787.af4277d5.chunk.js */,
-				3F234F1E2949CA3300BAD21C /* 787.af4277d5.chunk.js.map */,
-				3F234F1F2949CA3400BAD21C /* main.9ee957f7.js */,
-				3F234F1D2949CA3300BAD21C /* main.9ee957f7.js.LICENSE.txt */,
-				3F234F212949CA3400BAD21C /* main.9ee957f7.js.map */,
-				3F234F132949CA1000BAD21C /* asset-manifest.json */,
-				3F234F0F2949CA1000BAD21C /* favicon.ico */,
-				3F234F122949CA1000BAD21C /* index.html */,
-				3F234F102949CA1000BAD21C /* logo192.png */,
-				3F234F112949CA1000BAD21C /* logo512.png */,
-				3F234F142949CA1000BAD21C /* manifest.json */,
-				3F234F152949CA1000BAD21C /* robots.txt */,
+				3F8088B1294B21070081EC2F /* 787.af4277d5.chunk.js */,
+				3F8088B5294B21070081EC2F /* 787.af4277d5.chunk.js.map */,
+				3F8088B7294B21070081EC2F /* asset-manifest.json */,
+				3F8088BE294B21070081EC2F /* favicon.ico */,
+				3F8088B3294B21070081EC2F /* index.html */,
+				3F8088B8294B21070081EC2F /* logo192.png */,
+				3F8088B4294B21070081EC2F /* logo512.png */,
+				3F8088BA294B21070081EC2F /* main.6397b630.js */,
+				3F8088B9294B21070081EC2F /* main.6397b630.js.LICENSE.txt */,
+				3F8088BC294B21070081EC2F /* main.6397b630.js.map */,
+				3F8088BB294B21070081EC2F /* main.e6c13ad2.css */,
+				3F8088B6294B21070081EC2F /* main.e6c13ad2.css.map */,
+				3F8088BD294B21070081EC2F /* manifest.json */,
+				3F8088B2294B21070081EC2F /* robots.txt */,
 				3FE6B47E2938DF5500559FBE /* YamlerApp.swift */,
 				3FE6B4842938DF5600559FBE /* Assets.xcassets */,
 				3FE6B4862938DF5600559FBE /* Info.plist */,
@@ -300,22 +300,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F234F2A2949CA9900BAD21C /* main.e6c13ad2.css.map in Resources */,
-				3F234F252949CA5500BAD21C /* 787.af4277d5.chunk.js.map in Resources */,
-				3F234F262949CA5500BAD21C /* main.9ee957f7.js.map in Resources */,
-				3F234F222949CA3400BAD21C /* main.9ee957f7.js.LICENSE.txt in Resources */,
-				3F234F292949CA7C00BAD21C /* main.e6c13ad2.css in Resources */,
+				3F8088CA294B211E0081EC2F /* 787.af4277d5.chunk.js.map in Resources */,
+				3F8088CB294B211E0081EC2F /* main.6397b630.js.map in Resources */,
+				3F8088CC294B211E0081EC2F /* main.e6c13ad2.css.map in Resources */,
+				3F8088C1294B21070081EC2F /* index.html in Resources */,
+				3F8088C9294B21070081EC2F /* favicon.ico in Resources */,
+				3F8088BF294B21070081EC2F /* 787.af4277d5.chunk.js in Resources */,
+				3F8088C0294B21070081EC2F /* robots.txt in Resources */,
+				3F8088C4294B21070081EC2F /* logo192.png in Resources */,
+				3F8088C8294B21070081EC2F /* manifest.json in Resources */,
 				3FE6B48A2938DF5600559FBE /* Preview Assets.xcassets in Resources */,
+				3F8088C3294B21070081EC2F /* asset-manifest.json in Resources */,
+				3F8088C7294B21070081EC2F /* main.e6c13ad2.css in Resources */,
+				3F8088C5294B21070081EC2F /* main.6397b630.js.LICENSE.txt in Resources */,
 				3FE6B4852938DF5600559FBE /* Assets.xcassets in Resources */,
-				3F234F242949CA3400BAD21C /* 787.af4277d5.chunk.js in Resources */,
-				3F234F182949CA1000BAD21C /* logo512.png in Resources */,
-				3F234F1C2949CA1000BAD21C /* robots.txt in Resources */,
-				3F234F192949CA1000BAD21C /* index.html in Resources */,
-				3F234F1B2949CA1000BAD21C /* manifest.json in Resources */,
-				3F234F1A2949CA1000BAD21C /* asset-manifest.json in Resources */,
-				3F234F162949CA1000BAD21C /* favicon.ico in Resources */,
-				3F234F232949CA3400BAD21C /* main.9ee957f7.js in Resources */,
-				3F234F172949CA1000BAD21C /* logo192.png in Resources */,
+				3F8088C6294B21070081EC2F /* main.6397b630.js in Resources */,
+				3F8088C2294B21070081EC2F /* logo512.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
