@@ -12,7 +12,7 @@ struct Model {
     
     
     
-    var rawYaml: [String: Any] = ["123": [:]]
+    var rawYaml: [String: Any] = ["Name": "Yamler", "Description": "Yamler is the yaml viewer and editor. You can edit kubernetes config file, clash config file etc.", "Version": 2]
     func yaml() throws -> Data {
         let yaml = try Yams.dump(object: rawYaml)
         return yaml.data(using: .utf8)!
