@@ -14,6 +14,23 @@ struct ContentView: View {
         NavigationStack {
 //            Text("Yamler").font(.title2).fontWeight(.bold).padding(.bottom)
             ItemsView(base:nil, items: viewModel.wrap(), viewModel: viewModel)
+        }.toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Menu {
+                    Button(action: {}) {
+                        Label("Copy from Pasteboard", systemImage: "doc.on.clipboard")
+                    }
+
+                    Button(action: {}) {
+                        Label("Copy to Pasteboard", systemImage: "arrow.right.doc.on.clipboard")
+                    }
+                    
+                    ShareLink(item: try! viewModel.model.yamlStr())
+                }
+                label: {
+                    Label("Menu", systemImage: "ellipsis")
+                }
+            }
         }
 //        }.navigationBarBackButtonHidden(true)
 
