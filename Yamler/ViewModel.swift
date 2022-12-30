@@ -149,7 +149,7 @@ class ViewModel: ReferenceFileDocument {
         let map = baseValue as! [String: Any]
         var items: [Item] = []
         // decode to map
-        for (key,value) in map {
+        for (key,value) in map.sorted(by: {a,b in (a.key.compare(b.key)).rawValue < 0}) {
             let type = itemType(of: String(reflecting: type(of: value)))
             var subItems: [Item] = []
             

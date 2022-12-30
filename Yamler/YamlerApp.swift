@@ -11,7 +11,9 @@ import SwiftUI
 struct YamlerApp: App {
     var body: some Scene {
         DocumentGroup(newDocument: { ViewModel() }) { file in
-            ContentView(viewModel: file.document).toolbarRole(.automatic)
+            ContentView(viewModel: file.document).toolbarRole(.automatic).onOpenURL { url in
+                file.document.model.scheme(request: url.absoluteString)
+            }
         }
     }
 }

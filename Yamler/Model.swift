@@ -12,10 +12,28 @@ struct Model {
     
     
     
-    var rawYaml: [String: Any] = ["Name": "Yamler", "Description": "Yamler is the yaml viewer and editor. You can edit kubernetes config file, clash config file etc.", "Version": 2]
+    var rawYaml: [String: Any] = ["Name": "Yamler", "Description": "Yamler is the yaml viewer and editor. You can edit kubernetes config file, clash config file etc.", "Version": 3]
     func yaml() throws -> Data {
         let yaml = try Yams.dump(object: rawYaml)
         return yaml.data(using: .utf8)!
+    }
+    
+    mutating func scheme(request: String) {
+        let yaml = request.replacing("yamler://", with: "")
+        print(yaml)
+        let base64Decoded = Data(base64Encoded: yaml, options: Data.Base64DecodingOptions(rawValue: 0))
+        let str = String(data: base64Decoded!, encoding: .utf8)
+        if let value = try? Yams.load(yaml: str!)  {
+            if let v = value as? [String: Any] {
+                print("yaml successed.")
+                rawYaml = v
+            } else {
+                print("yaml failed.")
+            }
+            
+        } else {
+            print("yaml failed.")
+        }
     }
     
     func yamlStr() throws -> String {
