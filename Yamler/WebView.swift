@@ -18,7 +18,7 @@ struct WebView: UIViewRepresentable {
 
     func updateUIView(_ webView: WKWebView, context: Context) {
         
-        let baseUrl = Bundle.main.url(forResource: "index", withExtension: "html")!
+        let baseUrl = Bundle.main.url(forResource: "index", withExtension: "html", subdirectory: "yaml")!
 //        print(baseUrl)
         var component = URLComponents(url: baseUrl, resolvingAgainstBaseURL: false)
         component?.queryItems = [URLQueryItem(name: "items", value: string), URLQueryItem(name: "theme", value: colorScheme == .dark ? "dark" : "light")]
