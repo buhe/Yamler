@@ -13,11 +13,7 @@ struct WebView: UIViewRepresentable {
     var string: String
 
     func makeUIView(context: Context) -> WKWebView {
-        return WKWebView()
-    }
-
-    func updateUIView(_ webView: WKWebView, context: Context) {
-        
+        let webview = WKWebView()
         let baseUrl = Bundle.main.url(forResource: "index", withExtension: "html", subdirectory: "yaml")!
 //        print(baseUrl)
         var component = URLComponents(url: baseUrl, resolvingAgainstBaseURL: false)
@@ -25,8 +21,14 @@ struct WebView: UIViewRepresentable {
         
         if let url = component?.url {
 //            print(url)
-            webView.loadFileURL(url, allowingReadAccessTo: url)
+            webview.loadFileURL(url, allowingReadAccessTo: url)
         }
+        return webview
+    }
+
+    func updateUIView(_ webView: WKWebView, context: Context) {
+        
+        
         
         
         
