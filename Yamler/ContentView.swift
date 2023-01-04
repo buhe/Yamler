@@ -17,11 +17,15 @@ struct ContentView: View {
         }.toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Menu {
-                    Button(action: {}) {
+                    Button {
+                        
+                    } label: {
                         Label("Copy from Pasteboard", systemImage: "doc.on.clipboard")
                     }
 
-                    Button(action: {}) {
+                    Button {
+                        
+                    } label: {
                         Label("Copy to Pasteboard", systemImage: "arrow.right.doc.on.clipboard")
                     }
                     
