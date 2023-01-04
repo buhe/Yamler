@@ -18,13 +18,14 @@ struct ContentView: View {
             ToolbarItem(placement: .primaryAction) {
                 Menu {
                     Button {
-                        
+                        let content = UIPasteboard.general.string
+                        viewModel.model.str2yaml(content)
                     } label: {
                         Label("Copy from Pasteboard", systemImage: "doc.on.clipboard")
                     }
 
                     Button {
-                        
+                        UIPasteboard.general.string = try! viewModel.model.yamlStr()
                     } label: {
                         Label("Copy to Pasteboard", systemImage: "arrow.right.doc.on.clipboard")
                     }

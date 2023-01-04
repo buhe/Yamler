@@ -18,11 +18,7 @@ struct Model {
         return yaml.data(using: .utf8)!
     }
     
-    mutating func scheme(request: String) {
-        let yaml = request.replacing("yamler://", with: "")
-        print(yaml)
-        let base64Decoded = Data(base64Encoded: yaml, options: Data.Base64DecodingOptions(rawValue: 0))
-        let str = String(data: base64Decoded!, encoding: .utf8)
+    mutating func str2yaml(_ str: String?) {
         if let value = try? Yams.load(yaml: str!)  {
             if let v = value as? [String: Any] {
                 print("yaml successed.")
@@ -34,6 +30,14 @@ struct Model {
         } else {
             print("yaml failed.")
         }
+    }
+    
+    mutating func scheme(request: String) {
+        let yaml = request.replacing("yamler://", with: "")
+        print(yaml)
+        let base64Decoded = Data(base64Encoded: yaml, options: Data.Base64DecodingOptions(rawValue: 0))
+        let str = String(data: base64Decoded!, encoding: .utf8)
+        str2yaml(str)
     }
     
     func yamlStr() throws -> String {
