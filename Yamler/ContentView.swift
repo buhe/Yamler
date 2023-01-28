@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.undoManager) var undoManager
     @ObservedObject var viewModel: ViewModel
     @State var showErr = false
     @State var errMsg = ""
@@ -26,6 +27,7 @@ struct ContentView: View {
                             if !sucessed {
                                 showErr = true
                                 errMsg = "Paste board is invaild yaml"
+                                viewModel.auto(undoManager: undoManager)
                             } else {
                                 showErr = true
                                 errMsg = "Yaml has been successfully copied from the paste board"

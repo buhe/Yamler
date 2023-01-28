@@ -182,6 +182,9 @@ class ViewModel: ReferenceFileDocument {
             }
         }
     }
+    func auto(undoManager: UndoManager?) {
+        undoablyPerform(operation: "Auto", with: undoManager) {}
+    }
     func insertItem(father base: Item?, use item: Item, undoManager: UndoManager?) {
         undoablyPerform(operation: "Insert Item", with: undoManager) {
             if let base { // when base != nil
