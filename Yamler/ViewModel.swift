@@ -184,7 +184,7 @@ class ViewModel: ReferenceFileDocument {
     }
     func auto(undoManager: UndoManager?) {
         undoablyPerform(operation: "Auto", with: undoManager) {
-            print(model.yamlStr())
+//            print(model.yamlStr())
         }
     }
     func insertItem(father base: Item?, use item: Item, undoManager: UndoManager?) {
