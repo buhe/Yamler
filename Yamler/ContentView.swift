@@ -9,17 +9,31 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var viewModel: ViewModel
+    @State var showErr = false
+    @State var errMsg = ""
 
     var body: some View {
         NavigationStack {
 //            Text("Yamler").font(.title2).fontWeight(.bold).padding(.bottom)
             ItemsView(base:nil, items: viewModel.wrap(), viewModel: viewModel)
-        }.toolbar {
+        }
+        .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Menu {
                     Button {
-                        let content = UIPasteboard.general.string
-                        viewModel.model.str2yaml(content)
+                        if let content = UIPasteboard.general.string {
+                            let sucessed = viewModel.model.str2yaml(content)
+                            if !sucessed {
+                                showErr = true
+                                errMsg = "Paste board is invaild yaml"
+                            } else {
+                                showErr = true
+                                errMsg = "Yaml has been successfully copied from the paste board"
+                            }
+                        } else {
+                            showErr = true
+                            errMsg = "Paste board is empty"
+                        }
                     } label: {
                         Label("Copy from Pasteboard", systemImage: "doc.on.clipboard")
                     }
@@ -36,6 +50,9 @@ struct ContentView: View {
                     Label("Menu", systemImage: "ellipsis")
                 }
             }
+        }
+        .alert(errMsg, isPresented: $showErr) {
+            Button("OK", role: .cancel) { }
         }
 //        }.navigationBarBackButtonHidden(true)
 

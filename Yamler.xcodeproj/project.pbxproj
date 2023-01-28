@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3F108AB62949759F0053D5A0 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F108AB52949759F0053D5A0 /* WebView.swift */; };
 		3F73D16E293F0C8B0004B060 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73D16D293F0C8B0004B060 /* NewItemView.swift */; };
+		3F8406562984D45200BBA978 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8406552984D45200BBA978 /* SettingsView.swift */; };
 		3FC3835A296565EA00EC011A /* yaml in Resources */ = {isa = PBXBuildFile; fileRef = 3FC38359296565EA00EC011A /* yaml */; };
 		3FE6B47F2938DF5500559FBE /* YamlerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6B47E2938DF5500559FBE /* YamlerApp.swift */; };
 		3FE6B4832938DF5500559FBE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6B4822938DF5500559FBE /* ContentView.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		3F108AB52949759F0053D5A0 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		3F73D16D293F0C8B0004B060 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
+		3F8406552984D45200BBA978 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3FC38359296565EA00EC011A /* yaml */ = {isa = PBXFileReference; lastKnownFileType = folder; path = yaml; sourceTree = "<group>"; };
 		3FE6B47B2938DF5500559FBE /* Yamler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yamler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE6B47E2938DF5500559FBE /* YamlerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamlerApp.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				3FE6B4B02938E18100559FBE /* Ex.swift */,
 				3F73D16D293F0C8B0004B060 /* NewItemView.swift */,
 				3F108AB52949759F0053D5A0 /* WebView.swift */,
+				3F8406552984D45200BBA978 /* SettingsView.swift */,
 			);
 			path = Yamler;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F73D16E293F0C8B0004B060 /* NewItemView.swift in Sources */,
+				3F8406562984D45200BBA978 /* SettingsView.swift in Sources */,
 				3FE6B4AF2938E00000559FBE /* ViewModel.swift in Sources */,
 				3FE6B4B12938E18100559FBE /* Ex.swift in Sources */,
 				3FE6B47F2938DF5500559FBE /* YamlerApp.swift in Sources */,
@@ -476,7 +480,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 3;
+				MARKETING_VERSION = 4;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.buhe.Yamler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -521,7 +525,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 3;
+				MARKETING_VERSION = 4;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.buhe.Yamler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
