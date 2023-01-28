@@ -41,12 +41,12 @@ struct ContentView: View {
                     }
 
                     Button {
-                        UIPasteboard.general.string = try! viewModel.model.yamlStr()
+                        UIPasteboard.general.string = viewModel.model.yamlStr()
                     } label: {
                         Label("Copy to Pasteboard", systemImage: "arrow.right.doc.on.clipboard")
                     }
                     
-                    ShareLink(item: try! viewModel.model.yamlStr())
+                    ShareLink(item: viewModel.model.yamlStr())
                 }
                 label: {
                     Label("Menu", systemImage: "ellipsis")
@@ -115,7 +115,7 @@ struct ItemsView: View {
             
             
             if showYaml {
-                ItemRawView(items: try! viewModel.model.yamlStr())//.background(Color.yellow)
+                ItemRawView(items: viewModel.model.yamlStr())//.background(Color.yellow)
             }
         }
         

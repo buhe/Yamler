@@ -44,8 +44,13 @@ struct Model {
         }
     }
     
-    func yamlStr() throws -> String {
-        try Yams.dump(object: rawYaml)
+    func yamlStr() -> String {
+        do {
+            return try Yams.dump(object: rawYaml)
+        } catch {
+            print(error)
+            return ""
+        }
     }
     
     init(from yaml: Data) throws {
