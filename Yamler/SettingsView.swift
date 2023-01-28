@@ -16,7 +16,7 @@ struct SettingsView: View {
                 Section(){
                     Button{
                         #if os(iOS)
-                        if let url = URL(string: "https://github.com/buhe/ConvictConditioning/blob/main/Support.md") {
+                        if let url = URL(string: "https://github.com/buhe/Yamler/blob/main/Support.md") {
                             UIApplication.shared.open(url)
                         }
                         #endif
