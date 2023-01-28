@@ -27,10 +27,11 @@ struct ContentView: View {
                             if !sucessed {
                                 showErr = true
                                 errMsg = "Paste board is invaild yaml"
-                                viewModel.auto(undoManager: undoManager)
+                                
                             } else {
                                 showErr = true
                                 errMsg = "Yaml has been successfully copied from the paste board"
+                                viewModel.auto(undoManager: undoManager)
                             }
                         } else {
                             showErr = true
